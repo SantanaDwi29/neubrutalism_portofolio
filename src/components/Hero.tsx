@@ -18,9 +18,9 @@ export const Hero: React.FC = () => {
             <button className="bg-primary text-on-primary border-[3px] border-black px-8 py-4 font-label-bold uppercase hard-shadow neubrutalist-btn flex items-center gap-2">
               View Projects <span className="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
             </button>
-            <button className="bg-white text-black border-[3px] border-black px-8 py-4 font-label-bold uppercase hard-shadow neubrutalist-btn">
+            <a href="https://drive.google.com/file/d/1XwoxxsxWcmVBZScjTSJ7giGYm07xLilK/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bg-white text-black border-[3px] border-black px-8 py-4 font-label-bold uppercase hard-shadow neubrutalist-btn inline-block text-center">
               Resume
-            </button>
+            </a>
           </div>
         </div>
         <div className="md:col-span-4 rotate-2">
