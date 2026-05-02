@@ -18,7 +18,7 @@ export const Header: React.FC = () => {
     <header className="bg-white border-b-[3px] border-black sticky top-0 z-[100] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex justify-between items-center w-full px-4 md:px-6 py-3 md:py-4">
       <Link to="/" className="flex items-center gap-2 cursor-crosshair active:scale-95 transition-all duration-75 no-underline">
         <span className="material-symbols-outlined text-xl md:text-2xl" data-icon="terminal">terminal</span>
-        <span className="text-lg md:text-2xl font-black text-black font-['Space_Grotesk'] uppercase tracking-tighter">PORTFOLIO_OS</span>
+        <span className="text-lg md:text-2xl font-black text-black font-['Space_Grotesk'] uppercase tracking-tighter">MY_PORTOFLIO</span>
       </Link>
 
       {/* Desktop Nav */}
@@ -38,9 +38,9 @@ export const Header: React.FC = () => {
         <button className="hidden sm:block bg-primary-container text-black border-[3px] border-black px-4 py-2 font-['IBM_Plex_Mono'] font-bold uppercase tracking-tight hard-shadow neubrutalist-btn text-xs md:text-sm">
           CONTACT
         </button>
-        
+
         {/* Mobile Menu Toggle */}
-        <button 
+        <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="lg:hidden flex items-center justify-center w-10 h-10 border-[3px] border-black bg-white hard-shadow active:shadow-none active:translate-x-1 active:translate-y-1 transition-all"
         >
