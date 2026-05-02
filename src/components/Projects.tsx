@@ -21,7 +21,7 @@ export const Projects = () => {
           <div className="p-8 space-y-4">
             <div className="flex gap-2">
               <span className="bg-primary-container border-2 border-black px-3 py-1 text-xs font-label-bold uppercase rotate-1">FINTECH</span>
-              <span className="bg-tertiary-container border-2 border-black px-3 py-1 text-xs font-label-bold uppercase -rotate-1">2023</span>
+              <span className="bg-tertiary-container text-white border-2 border-black px-3 py-1 text-xs font-label-bold uppercase -rotate-1">2023</span>
             </div>
             <h3 className="font-headline-md text-headline-md uppercase">Neptune Finance Platform</h3>
             <p className="font-body-md text-body-md">A revolutionary banking interface designed for the next generation of digital assets. Featuring real-time analytics and heavy grid-based UI.</p>
@@ -31,7 +31,7 @@ export const Projects = () => {
           </div>
         </div>
         {/* Side Project Card */}
-        <div className="md:col-span-4 bg-[#FFE566] border-[3px] border-black hard-shadow flex flex-col rotate-1">
+        <div className="md:col-span-4 bg-primary-container border-[3px] border-black hard-shadow flex flex-col rotate-1">
           <div className="p-8 flex-1 space-y-6">
             <div className="w-16 h-16 bg-white border-[3px] border-black flex items-center justify-center -rotate-6">
               <span className="material-symbols-outlined text-4xl" data-icon="shapes">shapes</span>

@@ -8,53 +8,53 @@ export default {
   theme: {
     extend: {
       colors: {
-        "inverse-primary": "#dfc64b",
-        "on-secondary-container": "#6d0010",
+        "inverse-primary": "#D9B26F",
+        "on-secondary-container": "#ffffff",
         "on-primary-fixed": "#211b00",
         "on-primary": "#ffffff",
-        "surface-container": "#f4eddf",
-        "secondary": "#ae2f34",
-        "primary-container": "#ffe566",
-        "primary": "#6d5e00",
+        "surface-container": "#F5F5DC", // Light cream for main surfaces
+        "secondary": "#C14953", // Merah Jepang
+        "primary-container": "#D9B26F", // Gold Vintage
+        "primary": "#C14953", // Merah Jepang
         "on-surface": "#1e1c13",
         "error": "#ba1a1a",
-        "secondary-container": "#ff6b6b",
+        "secondary-container": "#C14953", // Merah Jepang
         "on-secondary-fixed": "#410006",
         "secondary-fixed-dim": "#ffb3b0",
         "error-container": "#ffdad6",
         "on-tertiary-fixed-variant": "#004c6a",
-        "on-primary-container": "#766500",
+        "on-primary-container": "#1e1c13",
         "surface-dim": "#e0d9cc",
-        "tertiary-container": "#cae9ff",
-        "background": "#fff9ed",
+        "tertiary-container": "#3E5C4A", // Hijau Gelap
+        "background": "#F5F5DC", // Light cream
         "on-secondary-fixed-variant": "#8c1520",
-        "surface-bright": "#fff9ed",
-        "surface": "#fff9ed",
+        "surface-bright": "#F5F5DC",
+        "surface": "#F5F5DC",
         "on-error": "#ffffff",
         "outline-variant": "#cec6b0",
         "on-tertiary": "#ffffff",
         "on-secondary": "#ffffff",
-        "outline": "#7d7763",
+        "outline": "#1e1c13",
         "secondary-fixed": "#ffdad8",
         "on-primary-fixed-variant": "#524600",
         "surface-variant": "#e8e2d4",
-        "primary-fixed": "#fce264",
+        "primary-fixed": "#D9B26F", // Gold Vintage
         "on-background": "#1e1c13",
         "inverse-on-surface": "#f7f0e2",
         "inverse-surface": "#333027",
         "surface-container-lowest": "#ffffff",
-        "surface-tint": "#6d5e00",
+        "surface-tint": "#C14953", // Merah Jepang
         "tertiary-fixed-dim": "#7dd0ff",
         "tertiary-fixed": "#c4e7ff",
-        "tertiary": "#00658b",
+        "tertiary": "#3E5C4A", // Hijau Gelap
         "on-error-container": "#93000a",
-        "primary-fixed-dim": "#dfc64b",
-        "surface-container-highest": "#e8e2d4",
+        "primary-fixed-dim": "#D9B26F",
+        "surface-container-highest": "#2F4858", // Biru Malam
         "on-tertiary-fixed": "#001e2d",
-        "on-surface-variant": "#4b4736",
+        "on-surface-variant": "#ffffff",
         "surface-container-low": "#faf3e5",
         "surface-container-high": "#eee8da",
-        "on-tertiary-container": "#006d95"
+        "on-tertiary-container": "#ffffff"
       },
       borderRadius: {
         "DEFAULT": "0px",

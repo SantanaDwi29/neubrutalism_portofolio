@@ -8,7 +8,7 @@ export const Certifications: React.FC = () => {
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Internship */}
-        <div className="bg-[#FFE566] border-[3px] border-black hard-shadow flex flex-col group overflow-hidden hover:-translate-y-2 transition-transform duration-300">
+        <div className="bg-secondary-container text-white border-[3px] border-black hard-shadow flex flex-col group overflow-hidden hover:-translate-y-2 transition-transform duration-300">
           <div className="h-48 border-b-[3px] border-black overflow-hidden relative bg-white">
             <img 
               src="/certification/Sertifikat_Magang.png" 
@@ -18,7 +18,7 @@ export const Certifications: React.FC = () => {
           </div>
           <div className="p-6 flex-1 flex flex-col">
             <div className="flex justify-between items-start mb-4">
-              <span className="bg-white border-2 border-black px-2 py-1 text-xs font-label-bold uppercase">Experience</span>
+              <span className="bg-white text-black border-2 border-black px-2 py-1 text-xs font-label-bold uppercase">Experience</span>
               <span className="material-symbols-outlined text-2xl" data-icon="work">work</span>
             </div>
             <h3 className="font-headline-md text-xl uppercase mb-2">Internship Program</h3>
@@ -40,7 +40,7 @@ export const Certifications: React.FC = () => {
           </div>
           <div className="p-6 flex-1 flex flex-col">
             <div className="flex justify-between items-start mb-4">
-              <span className="bg-white border-2 border-black px-2 py-1 text-xs font-label-bold uppercase">Development</span>
+              <span className="bg-white text-black border-2 border-black px-2 py-1 text-xs font-label-bold uppercase">Development</span>
               <span className="material-symbols-outlined text-2xl" data-icon="laptop_mac">laptop_mac</span>
             </div>
             <h3 className="font-headline-md text-xl uppercase mb-2">Junior Web Dev</h3>
@@ -52,7 +52,7 @@ export const Certifications: React.FC = () => {
         </div>
         
         {/* MongoDB */}
-        <div className="bg-tertiary-container border-[3px] border-black hard-shadow flex flex-col group overflow-hidden hover:-translate-y-2 transition-transform duration-300">
+        <div className="bg-tertiary-container text-white border-[3px] border-black hard-shadow flex flex-col group overflow-hidden hover:-translate-y-2 transition-transform duration-300">
           <div className="h-48 border-b-[3px] border-black overflow-hidden relative bg-white">
             <img 
               src="/certification/mongodb.png" 
@@ -62,7 +62,7 @@ export const Certifications: React.FC = () => {
           </div>
           <div className="p-6 flex-1 flex flex-col">
             <div className="flex justify-between items-start mb-4">
-              <span className="bg-white border-2 border-black px-2 py-1 text-xs font-label-bold uppercase">Database</span>
+              <span className="bg-white text-black border-2 border-black px-2 py-1 text-xs font-label-bold uppercase">Database</span>
               <span className="material-symbols-outlined text-2xl" data-icon="database">database</span>
             </div>
             <h3 className="font-headline-md text-xl uppercase mb-2">MongoDB Certified</h3>

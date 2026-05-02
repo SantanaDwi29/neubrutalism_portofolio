@@ -32,7 +32,7 @@ export const ProjectDetail = () => {
       <section className="space-y-6">
         <div className="flex gap-2">
           <span className="bg-primary-container border-2 border-black px-4 py-2 font-label-bold uppercase rotate-1 hard-shadow">{project.category}</span>
-          <span className="bg-tertiary-container border-2 border-black px-4 py-2 font-label-bold uppercase -rotate-1 hard-shadow">{project.year}</span>
+          <span className="bg-tertiary-container text-white border-2 border-black px-4 py-2 font-label-bold uppercase -rotate-1 hard-shadow">{project.year}</span>
         </div>
         <h1 className="font-headline-xl text-5xl md:text-7xl uppercase border-b-[6px] border-black pb-4">
           {project.title}
@@ -65,7 +65,7 @@ export const ProjectDetail = () => {
         </div>
 
         {/* Right Column - Content */}
-        <div className="md:col-span-8 bg-surface-container-highest border-[3px] border-black p-8 md:p-12 hard-shadow space-y-8">
+        <div className="md:col-span-8 bg-surface-container-highest text-white border-[3px] border-black p-8 md:p-12 hard-shadow space-y-8">
           <div>
             <h2 className="font-headline-lg text-3xl uppercase mb-4 flex items-center gap-2">
               <span className="material-symbols-outlined text-4xl" data-icon="info">info</span>
@@ -76,7 +76,7 @@ export const ProjectDetail = () => {
             </p>
           </div>
           
-          <div className="bg-white border-[3px] border-black p-6 shadow-[inset_4px_4px_0px_0px_rgba(0,0,0,1)]">
+          <div className="bg-white text-black border-[3px] border-black p-6 shadow-[inset_4px_4px_0px_0px_rgba(0,0,0,1)]">
             <h2 className="font-headline-md text-2xl uppercase mb-4 text-secondary">The Challenge</h2>
             <p className="font-body-md">
               {project.challenges}
