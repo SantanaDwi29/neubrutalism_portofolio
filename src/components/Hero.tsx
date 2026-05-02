@@ -40,7 +40,7 @@ export const Hero: React.FC = () => {
   return (
     <>
       <section className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center animate-fade-in-up">
-        <div className="md:col-span-8 space-y-8 -rotate-1">
+        <div className="md:col-span-8 space-y-8 md:-rotate-1">
           <div className="inline-block bg-tertiary-container border-2 border-black px-4 py-1 hard-shadow text-on-tertiary-container font-label-bold uppercase">
             Available for Work 2025
           </div>
@@ -85,7 +85,7 @@ export const Hero: React.FC = () => {
       </section>
 
       {/* Marquee Ticker */}
-      <div className="w-[100vw] relative left-1/2 right-1/2 -ml-[50vw] overflow-hidden bg-primary-container border-y-[3px] border-black py-4 flex whitespace-nowrap mt-12 md:mt-24">
+      <div className="w-screen relative left-[50%] right-[50%] -ml-[50vw] -mr-[50vw] overflow-hidden bg-primary-container border-y-[3px] border-black py-4 flex whitespace-nowrap mt-12 md:mt-24">
         <div className="flex animate-marquee font-headline-md text-xl md:text-headline-md uppercase font-black space-x-8 md:space-x-12">
           <span>UI/UX DESIGN • FULL-STACK DEVELOPMENT • BRANDING • MOTION GRAPHICS • CREATIVE CODING • </span>
           <span>UI/UX DESIGN • FULL-STACK DEVELOPMENT • BRANDING • MOTION GRAPHICS • CREATIVE CODING • </span>

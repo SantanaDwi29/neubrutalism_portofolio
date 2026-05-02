@@ -15,7 +15,7 @@ export const Header: React.FC = () => {
   ];
 
   return (
-    <header className="bg-white border-b-[3px] border-black sticky top-0 z-[100] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex justify-between items-center w-full px-4 md:px-6 py-3 md:py-4">
+    <header className="bg-white border-b-[3px] border-black sticky top-0 z-[100] shadow-[0px_4px_0px_0px_rgba(0,0,0,1)] flex justify-between items-center w-full px-4 md:px-6 py-3 md:py-4">
       <Link to="/" className="flex items-center gap-2 cursor-crosshair active:scale-95 transition-all duration-75 no-underline">
         <span className="material-symbols-outlined text-xl md:text-2xl" data-icon="terminal">terminal</span>
         <span className="text-lg md:text-2xl font-black text-black font-['Space_Grotesk'] uppercase tracking-tighter">MY_PORTOFOLIO</span>

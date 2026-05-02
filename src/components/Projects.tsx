@@ -31,7 +31,7 @@ export const Projects = () => {
           </div>
         </div>
         {/* Side Project Card */}
-        <div className="md:col-span-4 bg-primary-container border-[3px] border-black hard-shadow flex flex-col rotate-1">
+        <div className="md:col-span-4 bg-primary-container border-[3px] border-black hard-shadow flex flex-col md:rotate-1">
           <div className="p-8 flex-1 space-y-6">
             <div className="w-16 h-16 bg-white border-[3px] border-black flex items-center justify-center -rotate-6">
               <span className="material-symbols-outlined text-4xl" data-icon="shapes">shapes</span>
@@ -49,7 +49,7 @@ export const Projects = () => {
           </div>
         </div>
         {/* Horizontal Project */}
-        <div className="md:col-span-12 grid grid-cols-1 md:grid-cols-2 bg-secondary-container border-[3px] border-black hard-shadow -rotate-1 overflow-hidden">
+        <div className="md:col-span-12 grid grid-cols-1 md:grid-cols-2 bg-secondary-container border-[3px] border-black hard-shadow md:-rotate-1 overflow-hidden">
           <div className="order-2 md:order-1 p-8 md:p-12 space-y-6 flex flex-col items-start">
             <h3 className="font-headline-md text-headline-lg uppercase text-white">Ghost Zine Archive</h3>
             <p className="font-body-md text-white/90 text-lg">Digital preservation of underground punk zines from the 90s, utilizing OCR and interactive masonry layouts.</p>
