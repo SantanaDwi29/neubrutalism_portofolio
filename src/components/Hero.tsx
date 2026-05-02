@@ -1,6 +1,43 @@
 
 
+import React, { useState, useEffect } from 'react';
+
 export const Hero: React.FC = () => {
+  const roles = [
+    "FULL-STACK DEVELOPER",
+    "FRONT-END DEVELOPER",
+    "BACK-END DEVELOPER",
+    "UI/UX ENTHUSIAST"
+  ];
+
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const [currentText, setCurrentText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const typingSpeed = isDeleting ? 50 : 150;
+
+    const handleTyping = () => {
+      const fullText = roles[currentRoleIndex];
+
+      if (!isDeleting && currentText === fullText) {
+        setTimeout(() => setIsDeleting(true), 2000);
+      } else if (isDeleting && currentText === "") {
+        setIsDeleting(false);
+        setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+      } else {
+        setCurrentText((prev) =>
+          isDeleting
+            ? fullText.substring(0, prev.length - 1)
+            : fullText.substring(0, prev.length + 1)
+        );
+      }
+    };
+
+    const timer = setTimeout(handleTyping, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [currentText, isDeleting, currentRoleIndex]);
+
   return (
     <>
       <section className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
@@ -8,8 +45,10 @@ export const Hero: React.FC = () => {
           <div className="inline-block bg-tertiary-container border-2 border-black px-4 py-1 hard-shadow text-on-tertiary-container font-label-bold uppercase">
             Available for Work 2024
           </div>
-          <h1 className="font-headline-xl text-headline-xl uppercase">
-            I BUILD <span className="bg-primary-container px-2">BRUTAL</span> DIGITAL <span className="text-secondary">EXPERIENCES</span>.
+          <h1 className="font-headline-xl text-headline-xl uppercase min-h-[3em] sm:min-h-0">
+            Hi, <br className="hidden sm:block" />Im A Santa <br className="hidden sm:block" />
+            <span className="bg-primary-container px-2">{currentText}</span>
+            <span className="animate-pulse">_</span>
           </h1>
           <p className="font-body-lg text-body-lg max-w-xl">
             I am a Front-End Developer student from Bali State Polytechnic who is passionate about building intuitive web experiences. Armed with a foundation in system development and a commitment to security, I am ready to bring digital innovation. </p>
