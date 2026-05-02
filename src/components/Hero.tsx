@@ -52,9 +52,9 @@ export const Hero: React.FC = () => {
           <p className="font-body-lg text-body-lg max-w-xl">
             I am a Front-End Developer student from Bali State Polytechnic who is passionate about building intuitive web experiences. Armed with a foundation in system development and a commitment to security, I am ready to bring digital innovation. </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="bg-primary text-on-primary border-[3px] border-black px-8 py-4 font-label-bold uppercase hard-shadow neubrutalist-btn flex items-center justify-center gap-2 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all">
+            <a href="#work" className="bg-primary text-on-primary border-[3px] border-black px-8 py-4 font-label-bold uppercase hard-shadow neubrutalist-btn flex items-center justify-center gap-2 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all no-underline">
               View Projects <span className="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
-            </button>
+            </a>
             <a href="https://drive.google.com/file/d/1XwoxxsxWcmVBZScjTSJ7giGYm07xLilK/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="bg-white text-black border-[3px] border-black px-8 py-4 font-label-bold uppercase hard-shadow neubrutalist-btn inline-block text-center active:translate-x-1 active:translate-y-1 active:shadow-none transition-all">
               Resume
             </a>
