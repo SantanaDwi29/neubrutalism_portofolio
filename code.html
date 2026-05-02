@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PORTFOLIO_OS | I MADE SANTANA DWIANANDA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=IBM+Plex+Mono:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "inverse-primary": "#dfc64b",
+                "on-secondary-container": "#6d0010",
+                "on-primary-fixed": "#211b00",
+                "on-primary": "#ffffff",
+                "surface-container": "#f4eddf",
+                "secondary": "#ae2f34",
+                "primary-container": "#ffe566",
+                "primary": "#6d5e00",
+                "on-surface": "#1e1c13",
+                "error": "#ba1a1a",
+                "secondary-container": "#ff6b6b",
+                "on-secondary-fixed": "#410006",
+                "secondary-fixed-dim": "#ffb3b0",
+                "error-container": "#ffdad6",
+                "on-tertiary-fixed-variant": "#004c6a",
+                "on-primary-container": "#766500",
+                "surface-dim": "#e0d9cc",
+                "tertiary-container": "#cae9ff",
+                "background": "#fff9ed",
+                "on-secondary-fixed-variant": "#8c1520",
+                "surface-bright": "#fff9ed",
+                "surface": "#fff9ed",
+                "on-error": "#ffffff",
+                "outline-variant": "#cec6b0",
+                "on-tertiary": "#ffffff",
+                "on-secondary": "#ffffff",
+                "outline": "#7d7763",
+                "secondary-fixed": "#ffdad8",
+                "on-primary-fixed-variant": "#524600",
+                "surface-variant": "#e8e2d4",
+                "primary-fixed": "#fce264",
+                "on-background": "#1e1c13",
+                "inverse-on-surface": "#f7f0e2",
+                "inverse-surface": "#333027",
+                "surface-container-lowest": "#ffffff",
+                "surface-tint": "#6d5e00",
+                "tertiary-fixed-dim": "#7dd0ff",
+                "tertiary-fixed": "#c4e7ff",
+                "tertiary": "#00658b",
+                "on-error-container": "#93000a",
+                "primary-fixed-dim": "#dfc64b",
+                "surface-container-highest": "#e8e2d4",
+                "on-tertiary-fixed": "#001e2d",
+                "on-surface-variant": "#4b4736",
+                "surface-container-low": "#faf3e5",
+                "surface-container-high": "#eee8da",
+                "on-tertiary-container": "#006d95"
+            },
+            "borderRadius": {
+                "DEFAULT": "0px",
+                "lg": "0px",
+                "xl": "0px",
+                "full": "9999px"
+            },
+            "spacing": {
+                "xl": "80px",
+                "gutter": "24px",
+                "xs": "4px",
+                "md": "24px",
+                "margin": "32px",
+                "sm": "12px",
+                "lg": "48px",
+                "unit": "8px"
+            },
+            "fontFamily": {
+                "body-md": ["IBM Plex Mono"],
+                "headline-lg": ["Space Grotesk"],
+                "headline-md": ["Space Grotesk"],
+                "label-bold": ["IBM Plex Mono"],
+                "body-lg": ["IBM Plex Mono"],
+                "headline-xl": ["Space Grotesk"]
+            },
+            "fontSize": {
+                "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "headline-lg": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                "label-bold": ["14px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "headline-xl": ["80px", {"lineHeight": "1.0", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hard-shadow {
+            box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+        }
+        .hard-shadow-lg {
+            box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
+        }
+        .neubrutalist-btn:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px 0px rgba(0,0,0,1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopAppBar Navigation -->
+<header class="bg-white dark:bg-zinc-900 border-b-[3px] border-black dark:border-white sticky top-0 z-50 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,1)] flex justify-between items-center w-full px-6 py-4">
+<div class="flex items-center gap-2 cursor-crosshair active:scale-95 transition-all duration-75">
+<span class="material-symbols-outlined text-2xl" data-icon="terminal">terminal</span>
+<span class="text-2xl font-black text-black dark:text-white font-['Space_Grotesk'] uppercase tracking-tighter">PORTFOLIO_OS</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="font-['IBM_Plex_Mono'] text-sm font-bold uppercase underline decoration-[4px] decoration-[#ff7f50] underline-offset-4 cursor-crosshair" href="#">HOME</a>
+<a class="font-['IBM_Plex_Mono'] text-sm font-bold uppercase text-black hover:translate-x-[2px] hover:translate-y-[2px] transition-all cursor-crosshair" href="#">WORK</a>
+<a class="font-['IBM_Plex_Mono'] text-sm font-bold uppercase text-black hover:translate-x-[2px] hover:translate-y-[2px] transition-all cursor-crosshair" href="#">STACK</a>
+<a class="font-['IBM_Plex_Mono'] text-sm font-bold uppercase text-black hover:translate-x-[2px] hover:translate-y-[2px] transition-all cursor-crosshair" href="#">ABOUT</a>
+</nav>
+<button class="bg-primary-container text-black border-[3px] border-black px-4 py-2 font-['IBM_Plex_Mono'] font-bold uppercase tracking-tight hard-shadow neubrutalist-btn">
+            CONTACT
+        </button>
+</header>
+<main class="max-w-[1024px] mx-auto px-6 py-12 md:py-24 space-y-24">
+<!-- Hero Section -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+<div class="md:col-span-8 space-y-8 -rotate-1">
+<div class="inline-block bg-tertiary-container border-2 border-black px-4 py-1 hard-shadow text-on-tertiary-container font-label-bold uppercase">
+                    Available for Work 2024
+                </div>
+<h1 class="font-headline-xl text-headline-xl uppercase">
+                    I BUILD <span class="bg-primary-container px-2">BRUTAL</span> DIGITAL <span class="text-secondary">EXPERIENCES</span>.
+                </h1>
+<p class="font-body-lg text-body-lg max-w-xl">
+                    I am Santana Dwiananda, a full-stack engineer and designer based in Indonesia. I specialize in high-performance web applications that don't look like every other template.
+                </p>
+<div class="flex gap-4">
+<button class="bg-primary text-on-primary border-[3px] border-black px-8 py-4 font-label-bold uppercase hard-shadow neubrutalist-btn flex items-center gap-2">
+                        View Projects <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="bg-white text-black border-[3px] border-black px-8 py-4 font-label-bold uppercase hard-shadow neubrutalist-btn">
+                        Resume
+                    </button>
+</div>
+</div>
+<div class="md:col-span-4 rotate-2">
+<div class="aspect-square bg-white border-[3px] border-black hard-shadow-lg overflow-hidden grayscale contrast-125">
+<img alt="I Made Santana Dwiananda" class="w-full h-full object-cover" data-alt="A high-contrast black and white portrait of a modern software engineer in a workspace filled with vintage electronics and glowing monitors. The lighting is dramatic and directional, highlighting sharp facial features and the technical aesthetic of the surrounding hardware. The mood is focused and professional, perfectly aligning with a neubrutalist design system's raw and unapologetic personality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0o39kGQA1aqKcW1RKkIB9biokJEaR3EmKWqXQRZlBG31du-3bDpjV1aMBYuoAcABZhtpv3lsyQQ-98b--NfIGyRLWu6wK70K_ruVvk3GFBPIJZ0au5TzNFvunbYQC1stiY2J1AwuXXIwjNmuZgzoztj_OFUxLOwvGXkQpUbGaqi51d8gd7xNFoJP10TnsfhUqTdshCtvp-mltl27gQX9IGYdRXhEYxGE8soDnvuJ3h10zhnF8sPGVbcopGv-KZS1TklggLgdMdkzX"/>
+</div>
+</div>
+</section>
+<!-- Marquee Ticker -->
+<div class="w-screen -ml-6 md:-ml-[calc((100vw-1024px)/2+24px)] overflow-hidden bg-primary-container border-y-[3px] border-black py-4 flex whitespace-nowrap">
+<div class="flex animate-marquee font-headline-md uppercase font-black space-x-12">
+<span>UI/UX DESIGN • FULL-STACK DEVELOPMENT • BRANDING • MOTION GRAPHICS • CREATIVE CODING • </span>
+<span>UI/UX DESIGN • FULL-STACK DEVELOPMENT • BRANDING • MOTION GRAPHICS • CREATIVE CODING • </span>
+<span>UI/UX DESIGN • FULL-STACK DEVELOPMENT • BRANDING • MOTION GRAPHICS • CREATIVE CODING • </span>
+</div>
+</div>
+<!-- Tech Stack Grid -->
+<section class="space-y-12">
+<h2 class="font-headline-lg text-headline-lg uppercase flex items-center gap-4">
+<span class="material-symbols-outlined text-4xl" data-icon="code">code</span> Tech Stack
+            </h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<!-- Stack Cards -->
+<div class="bg-white border-[3px] border-black p-6 hard-shadow rotate-1 hover:rotate-0 transition-transform cursor-crosshair">
+<span class="material-symbols-outlined text-4xl mb-4 block" data-icon="javascript">javascript</span>
+<h3 class="font-headline-md text-xl uppercase mb-2">Frontend</h3>
+<p class="font-body-md text-sm">React, Next.js, Tailwind, GSAP, Three.js</p>
+</div>
+<div class="bg-tertiary-container border-[3px] border-black p-6 hard-shadow -rotate-1 hover:rotate-0 transition-transform cursor-crosshair">
+<span class="material-symbols-outlined text-4xl mb-4 block" data-icon="database">database</span>
+<h3 class="font-headline-md text-xl uppercase mb-2">Backend</h3>
+<p class="font-body-md text-sm">Node.js, PostgreSQL, MongoDB, Redis</p>
+</div>
+<div class="bg-secondary-container border-[3px] border-black p-6 hard-shadow rotate-2 hover:rotate-0 transition-transform cursor-crosshair">
+<span class="material-symbols-outlined text-4xl mb-4 block" data-icon="brush">brush</span>
+<h3 class="font-headline-md text-xl uppercase mb-2">Design</h3>
+<p class="font-body-md text-sm">Figma, Adobe CC, Blender, Typography</p>
+</div>
+<div class="bg-surface-container-highest border-[3px] border-black p-6 hard-shadow -rotate-2 hover:rotate-0 transition-transform cursor-crosshair">
+<span class="material-symbols-outlined text-4xl mb-4 block" data-icon="terminal">terminal</span>
+<h3 class="font-headline-md text-xl uppercase mb-2">DevOps</h3>
+<p class="font-body-md text-sm">Docker, AWS, Vercel, CI/CD Pipelines</p>
+</div>
+</div>
+</section>
+<!-- Projects Bento Grid -->
+<section class="space-y-12">
+<div class="flex justify-between items-end">
+<h2 class="font-headline-lg text-headline-lg uppercase">Selected Works</h2>
+<a class="font-label-bold uppercase underline decoration-2 underline-offset-4 mb-2" href="#">View All (12)</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Large Project Card -->
+<div class="md:col-span-8 bg-white border-[3px] border-black hard-shadow overflow-hidden flex flex-col group">
+<div class="h-64 md:h-96 border-b-[3px] border-black overflow-hidden">
+<img alt="Fintech Dashboard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A clean and bold user interface of a financial dashboard with vibrant neubrutalist charts and sharp black borders. The composition is asymmetrical with large, thick-bordered cards displaying data in IBM Plex Mono font. The color scheme is predominantly white and yellow with heavy black shadows, creating a high-energy and modern data visualization environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmvrceUzHpvBS9jegXWJegK4C1yqla640KUOpgESKHWT6Sg9YFOhsbDGo3PzBCVyxdxwq_UErZf3Db-U1xgGfh43y-Y5sBvgPu062MOkhse7Ba1Vg6z7bqH7t-yP0qGzGgv-qfytis0wK3lT7kipWTp4RI_2Yi6MKp48-C2U1rdUq7r8Hugf86wjzcyjO31KC_Lj6XKfzjinJ83FTzyFdkCteIv8GDNN7sD38cg68WHUXWStcVBELriYfUXSDGX4VLCnHM-PLxm6Ne"/>
+</div>
+<div class="p-8 space-y-4">
+<div class="flex gap-2">
+<span class="bg-primary-container border-2 border-black px-3 py-1 text-xs font-label-bold uppercase rotate-1">FINTECH</span>
+<span class="bg-tertiary-container border-2 border-black px-3 py-1 text-xs font-label-bold uppercase -rotate-1">2023</span>
+</div>
+<h3 class="font-headline-md text-headline-md uppercase">Neptune Finance Platform</h3>
+<p class="font-body-md text-body-md">A revolutionary banking interface designed for the next generation of digital assets. Featuring real-time analytics and heavy grid-based UI.</p>
+<button class="bg-black text-white px-6 py-2 font-label-bold uppercase neubrutalist-btn flex items-center gap-2">
+                            Case Study <span class="material-symbols-outlined" data-icon="open_in_new">open_in_new</span>
+</button>
+</div>
+</div>
+<!-- Side Project Card -->
+<div class="md:col-span-4 bg-[#FFE566] border-[3px] border-black hard-shadow flex flex-col rotate-1">
+<div class="p-8 flex-1 space-y-6">
+<div class="w-16 h-16 bg-white border-[3px] border-black flex items-center justify-center -rotate-6">
+<span class="material-symbols-outlined text-4xl" data-icon="shapes">shapes</span>
+</div>
+<h3 class="font-headline-md text-2xl uppercase">Design System OS</h3>
+<p class="font-body-md text-sm">A centralized library of neubrutalist components for rapid prototyping and development consistency across global teams.</p>
+<ul class="space-y-2 font-label-bold text-xs uppercase opacity-80">
+<li>• Documentation</li>
+<li>• Storybook</li>
+<li>• Figma Plugin</li>
+</ul>
+</div>
+<div class="p-8 border-t-[3px] border-black bg-white">
+<button class="w-full border-[3px] border-black py-3 font-label-bold uppercase hard-shadow neubrutalist-btn">Preview</button>
+</div>
+</div>
+<!-- Horizontal Project -->
+<div class="md:col-span-12 grid grid-cols-1 md:grid-cols-2 bg-secondary-container border-[3px] border-black hard-shadow -rotate-1 overflow-hidden">
+<div class="order-2 md:order-1 p-8 md:p-12 space-y-6">
+<h3 class="font-headline-md text-headline-lg uppercase text-white">Ghost Zine Archive</h3>
+<p class="font-body-md text-white/90 text-lg">Digital preservation of underground punk zines from the 90s, utilizing OCR and interactive masonry layouts.</p>
+<div class="flex flex-wrap gap-4">
+<div class="bg-white border-2 border-black px-4 py-2 font-label-bold text-sm uppercase">Next.js</div>
+<div class="bg-white border-2 border-black px-4 py-2 font-label-bold text-sm uppercase">Cloudinary</div>
+<div class="bg-white border-2 border-black px-4 py-2 font-label-bold text-sm uppercase">Canvas API</div>
+</div>
+</div>
+<div class="order-1 md:order-2 h-64 md:h-auto border-b-[3px] md:border-b-0 md:border-l-[3px] border-black overflow-hidden">
+<img alt="Ghost Zine" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="A chaotic yet artistic collage of vintage black and white zine pages layered with neon red digital textures. The image has a raw, punk-rock aesthetic with distorted typography and high-contrast xerox-style filters. The setting is dark and gritty, illuminated by sharp, flickering red light, evoking a sense of underground culture and digital preservation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR-mCK-67ymH1Pm4PhvCdDxK748VHLQyuHm2s17CTEh7JolZp7bkebWXVucmid6DVWVcin0P0cXsgDJGjE8Qb1hMwDlhlZjy15B_qv1L1L80TzZfKyOXyxwbo3Jh_pJ3byMypvOH0iD_RB-UQbR92bmI156Py2QrqEsfV-3awqrKr0xxxNYOnAIXTn3SElTddlY-Sm6LmULBEmPFfyuFBWkVAaoTnd-a2MMEncnVsLcO_b_sVUXkQHdWgbl8afCvBCcpvtshBQk0bF"/>
+</div>
+</div>
+</div>
+</section>
+<!-- About / Contact Section Split -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<div class="md:col-span-7 bg-white border-[3px] border-black p-8 md:p-12 hard-shadow space-y-6 rotate-1">
+<h2 class="font-headline-md text-headline-md uppercase">The Philosophy</h2>
+<p class="font-body-lg text-body-lg">
+                    I believe the internet is becoming too soft. My work is a response to the homogenization of digital design. I build tools that feel like physical objects—heavy, tactile, and permanent.
+                </p>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-2">
+<span class="font-label-bold uppercase text-secondary">01. Utility</span>
+<p class="text-sm">Function first, but never boring.</p>
+</div>
+<div class="space-y-2">
+<span class="font-label-bold uppercase text-secondary">02. Chaos</span>
+<p class="text-sm">Controlled asymmetry for focus.</p>
+</div>
+</div>
+</div>
+<div class="md:col-span-5 bg-black text-white p-8 md:p-12 hard-shadow flex flex-col justify-between -rotate-1">
+<div class="space-y-4">
+<h2 class="font-headline-md text-headline-md uppercase text-primary-container">Let's talk.</h2>
+<p class="font-body-md opacity-80">Currently accepting new projects for Q4 2024.</p>
+</div>
+<div class="mt-8 space-y-4">
+<a class="block text-xl font-headline-md uppercase border-b-2 border-primary-container pb-2 hover:text-primary-container transition-colors" href="mailto:hello@santana.os">hello@santana.os</a>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary-container" data-icon="link">link</span>
+<div class="flex gap-4 font-label-bold uppercase text-xs">
+<a class="hover:underline" href="#">Github</a>
+<a class="hover:underline" href="#">Dribbble</a>
+<a class="hover:underline" href="#">LinkedIn</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#FFE566] dark:bg-yellow-400 border-t-[3px] border-black w-full flex flex-col md:flex-row justify-between items-center px-8 py-12 gap-8">
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="font-['Space_Grotesk'] font-black text-2xl uppercase tracking-tighter">PORTFOLIO_OS</span>
+<span class="font-['IBM_Plex_Mono'] font-bold uppercase text-sm">©2024 I MADE SANTANA DWIANANDA</span>
+</div>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="font-['IBM_Plex_Mono'] font-bold uppercase text-black hover:bg-black hover:text-white px-2 py-1 transition-colors hover:skew-x-2 transition-transform" href="#">GITHUB</a>
+<a class="font-['IBM_Plex_Mono'] font-bold uppercase text-black hover:bg-black hover:text-white px-2 py-1 transition-colors hover:skew-x-2 transition-transform" href="#">LINKEDIN</a>
+<a class="font-['IBM_Plex_Mono'] font-bold uppercase text-black hover:bg-black hover:text-white px-2 py-1 transition-colors hover:skew-x-2 transition-transform" href="#">TWITTER</a>
+<a class="font-['IBM_Plex_Mono'] font-bold uppercase text-black hover:bg-black hover:text-white px-2 py-1 transition-colors hover:skew-x-2 transition-transform" href="#">EMAIL</a>
+</div>
+</footer>
+<!-- BottomNavBar (Tablet/Mobile Only) -->
+<nav class="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md border-[3px] border-black bg-white flex justify-around items-center p-4 z-50 hard-shadow">
+<a class="bg-[#FFE566] text-black border-2 border-black scale-110 p-2 flex items-center justify-center cursor-crosshair active:translate-y-1 active:shadow-none transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+</a>
+<a class="text-black p-2 flex items-center justify-center hover:bg-cyan-400 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+</a>
+<a class="text-black p-2 flex items-center justify-center hover:bg-cyan-400 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="folder_open">folder_open</span>
+</a>
+<a class="text-black p-2 flex items-center justify-center hover:bg-cyan-400 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</a>
+</nav>
+</body></html>
