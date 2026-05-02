@@ -12,8 +12,7 @@ export const Hero: React.FC = () => {
             I BUILD <span className="bg-primary-container px-2">BRUTAL</span> DIGITAL <span className="text-secondary">EXPERIENCES</span>.
           </h1>
           <p className="font-body-lg text-body-lg max-w-xl">
-            I am Santana Dwiananda, a full-stack engineer and designer based in Indonesia. I specialize in high-performance web applications that don't look like every other template.
-          </p>
+            I am a Front-End Developer student from Bali State Polytechnic who is passionate about building intuitive web experiences. Armed with a foundation in system development and a commitment to security, I am ready to bring digital innovation. </p>
           <div className="flex gap-4">
             <button className="bg-primary text-on-primary border-[3px] border-black px-8 py-4 font-label-bold uppercase hard-shadow neubrutalist-btn flex items-center gap-2">
               View Projects <span className="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
@@ -25,9 +24,9 @@ export const Hero: React.FC = () => {
         </div>
         <div className="md:col-span-4 rotate-2">
           <div className="aspect-square bg-white border-[3px] border-black hard-shadow-lg overflow-hidden grayscale contrast-125">
-            <img 
-              alt="I Made Santana Dwiananda" 
-              className="w-full h-full object-cover" 
+            <img
+              alt="I Made Santana Dwiananda"
+              className="w-full h-full object-cover"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0o39kGQA1aqKcW1RKkIB9biokJEaR3EmKWqXQRZlBG31du-3bDpjV1aMBYuoAcABZhtpv3lsyQQ-98b--NfIGyRLWu6wK70K_ruVvk3GFBPIJZ0au5TzNFvunbYQC1stiY2J1AwuXXIwjNmuZgzoztj_OFUxLOwvGXkQpUbGaqi51d8gd7xNFoJP10TnsfhUqTdshCtvp-mltl27gQX9IGYdRXhEYxGE8soDnvuJ3h10zhnF8sPGVbcopGv-KZS1TklggLgdMdkzX"
             />
           </div>

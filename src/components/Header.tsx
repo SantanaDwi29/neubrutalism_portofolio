@@ -11,6 +11,7 @@ export const Header: React.FC = () => {
         <a className="font-['IBM_Plex_Mono'] text-sm font-bold uppercase underline decoration-[4px] decoration-[#ff7f50] underline-offset-4 cursor-crosshair" href="/">HOME</a>
         <a className="font-['IBM_Plex_Mono'] text-sm font-bold uppercase text-black hover:translate-x-[2px] hover:translate-y-[2px] transition-all cursor-crosshair" href="/#work">WORK</a>
         <a className="font-['IBM_Plex_Mono'] text-sm font-bold uppercase text-black hover:translate-x-[2px] hover:translate-y-[2px] transition-all cursor-crosshair" href="/#stack">STACK</a>
+        <a className="font-['IBM_Plex_Mono'] text-sm font-bold uppercase text-black hover:translate-x-[2px] hover:translate-y-[2px] transition-all cursor-crosshair" href="/#experience">EXPERIENCE</a>
         <a className="font-['IBM_Plex_Mono'] text-sm font-bold uppercase text-black hover:translate-x-[2px] hover:translate-y-[2px] transition-all cursor-crosshair" href="/#certifications">CERTIFICATES</a>
         <a className="font-['IBM_Plex_Mono'] text-sm font-bold uppercase text-black hover:translate-x-[2px] hover:translate-y-[2px] transition-all cursor-crosshair" href="/#about">ABOUT</a>
       </nav>
