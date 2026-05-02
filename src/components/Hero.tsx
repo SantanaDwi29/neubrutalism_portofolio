@@ -72,7 +72,7 @@ export const Hero: React.FC = () => {
               <img
                 alt="I Made Santana Dwiananda"
                 className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-700"
-                src="/hero.png"
+                src="/hero.webp"
               />
             </div>
             

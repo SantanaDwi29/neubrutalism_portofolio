@@ -24,22 +24,6 @@ export const Footer: React.FC = () => {
           </a>
         </div>
       </footer>
-
-      {/* BottomNavBar (Tablet/Mobile Only) */}
-      <nav className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md border-[3px] border-black bg-white flex justify-around items-center p-4 z-50 hard-shadow">
-        <a className="bg-primary-container text-black border-2 border-black scale-110 p-2 flex items-center justify-center cursor-crosshair active:translate-y-1 active:shadow-none transition-all" href="#">
-          <span className="material-symbols-outlined" data-icon="home" style={{ fontVariationSettings: "'FILL' 1" }}>home</span>
-        </a>
-        <a className="text-black p-2 flex items-center justify-center hover:bg-cyan-400 transition-all" href="#">
-          <span className="material-symbols-outlined" data-icon="code">code</span>
-        </a>
-        <a className="text-black p-2 flex items-center justify-center hover:bg-cyan-400 transition-all" href="#">
-          <span className="material-symbols-outlined" data-icon="folder_open">folder_open</span>
-        </a>
-        <a className="text-black p-2 flex items-center justify-center hover:bg-cyan-400 transition-all" href="#">
-          <span className="material-symbols-outlined" data-icon="person">person</span>
-        </a>
-      </nav>
     </>
   );
 };
