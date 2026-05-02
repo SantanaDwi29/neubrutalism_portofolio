@@ -42,7 +42,7 @@ export const Hero: React.FC = () => {
       <section className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center animate-fade-in-up">
         <div className="md:col-span-8 space-y-8 -rotate-1">
           <div className="inline-block bg-tertiary-container border-2 border-black px-4 py-1 hard-shadow text-on-tertiary-container font-label-bold uppercase">
-            Available for Work 2024
+            Available for Work 2025
           </div>
           <h1 className="font-headline-xl text-[48px] leading-tight sm:text-[64px] md:text-headline-xl uppercase min-h-[3em] sm:min-h-0">
             Hi, <br className="hidden sm:block" />I'm  Santa <br className="hidden sm:block" />
@@ -65,7 +65,7 @@ export const Hero: React.FC = () => {
           <div className="absolute -inset-4 bg-dots opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
           <div className="absolute -top-6 -right-6 w-20 h-20 md:w-24 md:h-24 bg-secondary-container border-[3px] border-black rounded-full animate-blob-spin"></div>
           <div className="absolute -bottom-4 -left-4 w-12 h-12 md:w-16 md:h-16 bg-tertiary-container border-[3px] border-black hard-shadow"></div>
-          
+
           {/* Image Container */}
           <div className="relative animate-float mx-auto max-w-[280px] md:max-w-none">
             <div className="aspect-square bg-white border-[3px] border-black hard-shadow-lg overflow-hidden grayscale contrast-125 hover:grayscale-0 active:grayscale-0 transition-all duration-500 cursor-pointer group-hover:hard-shadow-none group-hover:translate-x-2 group-hover:translate-y-2 active:translate-x-2 active:translate-y-2 active:hard-shadow-none">
@@ -75,7 +75,7 @@ export const Hero: React.FC = () => {
                 src="/hero.webp"
               />
             </div>
-            
+
             {/* Overlay tag */}
             <div className="absolute -bottom-4 -right-4 bg-primary text-on-primary border-[3px] border-black px-3 py-1.5 md:px-4 md:py-2 font-label-bold text-xs md:text-sm uppercase hard-shadow rotate-3 group-hover:-rotate-3 active:-rotate-3 transition-transform">
               Santana.dev
