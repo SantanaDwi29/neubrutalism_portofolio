@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 export const Projects = () => {
   return (
     <section id="work" className="space-y-12">
-      <div className="flex justify-between items-end">
-        <h2 className="font-headline-lg text-headline-lg uppercase">Selected Works</h2>
+      <div className="flex justify-between items-center md:items-end flex-wrap gap-4">
+        <h2 className="font-headline-lg text-3xl md:text-headline-lg uppercase">Selected Works</h2>
         <a className="font-label-bold uppercase underline decoration-2 underline-offset-4 mb-2" href="#">View All (12)</a>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8">

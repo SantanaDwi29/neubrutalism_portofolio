@@ -3,8 +3,8 @@
 export const TechStack: React.FC = () => {
   return (
     <section id="stack" className="space-y-12">
-      <h2 className="font-headline-lg text-headline-lg uppercase flex items-center gap-4">
-        <span className="material-symbols-outlined text-4xl" data-icon="code">code</span> Tech Stack
+      <h2 className="font-headline-lg text-3xl md:text-headline-lg uppercase flex items-center gap-4 flex-wrap">
+        <span className="material-symbols-outlined text-3xl md:text-4xl" data-icon="code">code</span> Tech Stack
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
         {/* Stack Cards */}

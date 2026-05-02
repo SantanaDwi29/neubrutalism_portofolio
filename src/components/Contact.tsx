@@ -3,8 +3,8 @@
 export const Contact: React.FC = () => {
   return (
     <section id="about" className="grid grid-cols-1 md:grid-cols-12 gap-8">
-      <div className="md:col-span-7 bg-white border-[3px] border-black p-8 md:p-12 hard-shadow space-y-6 rotate-1">
-        <h2 className="font-headline-md text-headline-md uppercase">The Philosophy</h2>
+      <div className="md:col-span-7 bg-white border-[3px] border-black p-8 md:p-12 hard-shadow space-y-6 md:rotate-1">
+        <h2 className="font-headline-md text-2xl md:text-headline-md uppercase">The Philosophy</h2>
         <p className="font-body-lg text-body-lg">
           I believe the internet is becoming too soft. My work is a response to the homogenization of digital design. I build tools that feel like physical objects—heavy, tactile, and permanent.
         </p>
@@ -19,9 +19,9 @@ export const Contact: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="md:col-span-5 bg-black text-white p-8 md:p-12 hard-shadow flex flex-col justify-between -rotate-1">
+      <div className="md:col-span-5 bg-black text-white p-8 md:p-12 hard-shadow flex flex-col justify-between md:-rotate-1">
         <div className="space-y-4">
-          <h2 className="font-headline-md text-headline-md uppercase text-primary-container">Let's talk.</h2>
+          <h2 className="font-headline-md text-2xl md:text-headline-md uppercase text-primary-container">Let's talk.</h2>
           <p className="font-body-md opacity-80">Currently accepting new projects for Q4 2025.</p>
         </div>
         <div className="mt-8 space-y-4">

@@ -3,8 +3,8 @@ import React from 'react';
 export const Certifications: React.FC = () => {
   return (
     <section id="certifications" className="space-y-12">
-      <h2 className="font-headline-lg text-headline-lg uppercase flex items-center gap-4">
-        <span className="material-symbols-outlined text-4xl" data-icon="verified">verified</span> Certifications
+      <h2 className="font-headline-lg text-3xl md:text-headline-lg uppercase flex items-center gap-4 flex-wrap">
+        <span className="material-symbols-outlined text-3xl md:text-4xl" data-icon="verified">verified</span> Certifications
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Internship */}
@@ -18,7 +18,7 @@ export const Certifications: React.FC = () => {
           </div>
           <div className="p-6 flex-1 flex flex-col">
             <div className="flex justify-between items-start mb-4">
-              <span className="bg-white text-black border-2 border-black px-2 py-1 text-xs font-label-bold uppercase">Experience</span>
+              <span className="bg-white text-black border-2 border-black px-2 py-1 text-xs font-label-bold uppercase">Internship</span>
               <span className="material-symbols-outlined text-2xl" data-icon="work">work</span>
             </div>
             <h3 className="font-headline-md text-xl uppercase mb-2">Internship Program</h3>
