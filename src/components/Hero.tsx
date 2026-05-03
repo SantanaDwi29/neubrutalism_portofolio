@@ -95,9 +95,9 @@ export const Hero: React.FC = () => {
       {/* Marquee Ticker */}
       <div className="w-screen relative left-[50%] right-[50%] -ml-[50vw] -mr-[50vw] overflow-hidden bg-primary-container border-y-[3px] border-black py-4 flex whitespace-nowrap mt-12 md:mt-24">
         <div className="flex animate-marquee font-headline-md text-xl md:text-headline-md uppercase font-black space-x-8 md:space-x-12">
-          <span>FULL-STACK DEVELOPMENT • SAAS MODULES • LARAVEL • REACT • SYSTEM INTEGRATIONS  • CREATIVE CODING • FOTOGRAHPHER • WEB DESIGN • UI/UX • MOBILE APP DEVELOPMENT•  </span>
-          <span>FULL-STACK DEVELOPMENT • SAAS MODULES • LARAVEL • REACT • SYSTEM INTEGRATIONS  • CREATIVE CODING • FOTOGRAHPHER • WEB DESIGN • UI/UX • MOBILE APP DEVELOPMENT•  </span>
-          <span>FULL-STACK DEVELOPMENT • SAAS MODULES • LARAVEL • REACT • SYSTEM INTEGRATIONS  • CREATIVE CODING • FOTOGRAHPHER • WEB DESIGN • UI/UX • MOBILE APP DEVELOPMENT•  </span>
+          <span>FULL-STACK DEVELOPMENT • SAAS MODULES • LARAVEL • REACT • SYSTEM INTEGRATIONS  • CREATIVE CODING • PHOTOGRAPHER • WEB DESIGN • UI/UX • MOBILE APP DEVELOPMENT • </span>
+          <span>FULL-STACK DEVELOPMENT • SAAS MODULES • LARAVEL • REACT • SYSTEM INTEGRATIONS  • CREATIVE CODING • PHOTOGRAPHER • WEB DESIGN • UI/UX • MOBILE APP DEVELOPMENT • </span>
+          <span>FULL-STACK DEVELOPMENT • SAAS MODULES • LARAVEL • REACT • SYSTEM INTEGRATIONS  • CREATIVE CODING • PHOTOGRAPHER • WEB DESIGN • UI/UX • MOBILE APP DEVELOPMENT • </span>
         </div>
       </div>
     </div>

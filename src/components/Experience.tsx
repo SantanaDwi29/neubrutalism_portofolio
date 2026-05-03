@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { DecorativeElements } from './DecorativeElements';
 
 export const Experience: React.FC = () => {
@@ -19,6 +18,7 @@ export const Experience: React.FC = () => {
             </div>
             <h3 className="font-headline-md text-2xl uppercase mb-1">Web Developer</h3>
             <p className="font-body-lg text-lg font-bold mb-4">CV Sinar Teknologi Indonesia</p>
+
             <ul className="space-y-2 list-none p-0">
               <li className="flex items-start gap-2 font-body-md text-sm">
                 <span className="material-symbols-outlined text-sm mt-1" data-icon="check_circle">check_circle</span>
