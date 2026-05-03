@@ -18,7 +18,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 'apotek-saddasa',
-    title: 'Apotek Sadddasa',
+    title: 'Apotek Saddasa',
     category: 'HEALTHCARE',
     type: 'Team',
     year: '2026',
