@@ -1,12 +1,16 @@
 
 
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { projects } from '../data/projects';
 import { DecorativeElements } from './DecorativeElements';
 
 export const Projects = () => {
+  const [showAllTeam, setShowAllTeam] = React.useState(false);
   const internshipProjects = projects.filter(p => p.type === 'Internship' || p.type === 'Team');
   const individualProjects = projects.filter(p => p.type === 'Individual');
+
+  const displayedTeamProjects = showAllTeam ? internshipProjects : internshipProjects.slice(0, 3);
 
   return (
     <section id="work" className="relative space-y-16">
@@ -19,7 +23,14 @@ export const Projects = () => {
           </p>
         </div>
 
-        <a className="font-label-bold uppercase underline decoration-2 underline-offset-4 mb-2 hover:text-primary transition-colors" href="#">View All ({projects.length})</a>
+        {!showAllTeam && internshipProjects.length > 3 && (
+          <button 
+            onClick={() => setShowAllTeam(true)}
+            className="font-label-bold uppercase underline decoration-2 underline-offset-4 mb-2 hover:text-primary transition-colors"
+          >
+            View All ({projects.length})
+          </button>
+        )}
       </div>
 
       {/* Internship / Team Projects Section */}
@@ -30,7 +41,7 @@ export const Projects = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-          {internshipProjects.map((project) => (
+          {displayedTeamProjects.map((project) => (
             <div key={project.id} className="md:col-span-12 grid grid-cols-1 md:grid-cols-2 bg-surface-container-high border-[3px] border-black hard-shadow-lg overflow-hidden group">
               <Link to={`/project/${project.id}`} className="h-64 md:h-[380px] border-b-[3px] md:border-b-0 md:border-r-[3px] border-black overflow-hidden relative block bg-surface-dim">
                 <img 
@@ -61,6 +72,18 @@ export const Projects = () => {
             </div>
           ))}
         </div>
+
+        {/* View All Button for Team Projects */}
+        {!showAllTeam && internshipProjects.length > 3 && (
+          <div className="flex justify-center pt-4">
+            <button 
+              onClick={() => setShowAllTeam(true)}
+              className="bg-white border-[3px] border-black px-8 py-3 font-label-bold uppercase hover:bg-black hover:text-white transition-all hard-shadow active:translate-x-1 active:translate-y-1 active:shadow-none flex items-center gap-2"
+            >
+              View More Team Projects <span className="material-symbols-outlined" data-icon="expand_more">expand_more</span>
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Individual Projects Section */}
