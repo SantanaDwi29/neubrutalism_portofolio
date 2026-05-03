@@ -1,11 +1,11 @@
 
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { projects } from '../data/projects';
 import { useEffect, useState } from 'react';
 
 export const ProjectDetail = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
+
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
   const project = projects.find(p => p.id === id);
