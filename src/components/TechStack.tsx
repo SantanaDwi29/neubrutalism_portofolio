@@ -13,7 +13,7 @@ export const TechStack: React.FC = () => {
         <div className="bg-white border-[3px] border-black p-6 hard-shadow rotate-1 hover:rotate-0 transition-transform cursor-crosshair">
           <span className="material-symbols-outlined text-4xl mb-4 block" data-icon="javascript">javascript</span>
           <h3 className="font-headline-md text-xl uppercase mb-2">Frontend</h3>
-          <p className="font-body-md text-sm">React, Next.js, Tailwind, Bootstrap, HTML, JavaScript, CSS</p>
+          <p className="font-body-md text-sm">React, Next.js, TypeScript, Tailwind, Bootstrap, HTML, JavaScript, CSS</p>
         </div>
         <div className="bg-tertiary-container text-white border-[3px] border-black p-6 hard-shadow -rotate-1 hover:rotate-0 transition-transform cursor-crosshair">
           <span className="material-symbols-outlined text-4xl mb-4 block" data-icon="database">database</span>

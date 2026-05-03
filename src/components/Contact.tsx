@@ -24,7 +24,7 @@ export const Contact: React.FC = () => {
       <div className="md:col-span-5 bg-black text-white p-8 md:p-12 hard-shadow flex flex-col justify-between md:-rotate-1">
         <div className="space-y-4">
           <h2 className="font-headline-md text-2xl md:text-headline-md uppercase text-primary-container">Let's talk.</h2>
-          <p className="font-body-md opacity-80">Currently accepting new projects for Q4 2025.</p>
+          <p className="font-body-md opacity-80">Currently accepting new projects for Q2 2026.</p>
         </div>
         <div className="mt-8 space-y-4">
           <a className="block text-xl font-headline-md uppercase border-b-2 border-primary-container pb-2 hover:text-primary-container transition-colors"></a>

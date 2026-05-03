@@ -44,7 +44,7 @@ export const Hero: React.FC = () => {
       <section className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center animate-fade-in-up">
         <div className="md:col-span-8 space-y-8 md:-rotate-1">
           <div className="inline-block bg-tertiary-container border-2 border-black px-4 py-1 hard-shadow text-on-tertiary-container font-label-bold uppercase">
-            Available for Work 2025
+            Available for Work 2026
           </div>
           <h1 className="font-headline-xl text-[48px] leading-tight sm:text-[64px] md:text-headline-xl uppercase min-h-[3em] sm:min-h-0">
             Hi, <br className="hidden sm:block" />I'm  Santa <br className="hidden sm:block" />
@@ -57,7 +57,8 @@ export const Hero: React.FC = () => {
             <span className="animate-pulse">_</span>
           </h1>
           <p className="font-body-lg text-body-lg max-w-xl">
-            I am a Front-End Developer student from Bali State Polytechnic who is passionate about building intuitive web experiences. Armed with a foundation in system development and a commitment to security, I am ready to bring digital innovation. </p>
+            I am a Full-Stack Developer student from Bali State Polytechnic who is passionate about building intuitive and secure web experiences. Specialized in developing robust SaaS modules with Laravel and React, I focus on creating scalable solutions through efficient system integrations.
+          </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a href="#work" className="bg-primary text-on-primary border-[3px] border-black px-8 py-4 font-label-bold uppercase hard-shadow neubrutalist-btn flex items-center justify-center gap-2 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all no-underline">
               View Projects <span className="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
@@ -94,9 +95,9 @@ export const Hero: React.FC = () => {
       {/* Marquee Ticker */}
       <div className="w-screen relative left-[50%] right-[50%] -ml-[50vw] -mr-[50vw] overflow-hidden bg-primary-container border-y-[3px] border-black py-4 flex whitespace-nowrap mt-12 md:mt-24">
         <div className="flex animate-marquee font-headline-md text-xl md:text-headline-md uppercase font-black space-x-8 md:space-x-12">
-          <span>UI/UX DESIGN • FULL-STACK DEVELOPMENT • BRANDING • MOTION GRAPHICS • CREATIVE CODING • </span>
-          <span>UI/UX DESIGN • FULL-STACK DEVELOPMENT • BRANDING • MOTION GRAPHICS • CREATIVE CODING • </span>
-          <span>UI/UX DESIGN • FULL-STACK DEVELOPMENT • BRANDING • MOTION GRAPHICS • CREATIVE CODING • </span>
+          <span>FULL-STACK DEVELOPMENT • SAAS MODULES • LARAVEL • REACT • SYSTEM INTEGRATIONS  • CREATIVE CODING • FOTOGRAHPHER • WEB DESIGN • UI/UX • MOBILE APP DEVELOPMENT•  </span>
+          <span>FULL-STACK DEVELOPMENT • SAAS MODULES • LARAVEL • REACT • SYSTEM INTEGRATIONS  • CREATIVE CODING • FOTOGRAHPHER • WEB DESIGN • UI/UX • MOBILE APP DEVELOPMENT•  </span>
+          <span>FULL-STACK DEVELOPMENT • SAAS MODULES • LARAVEL • REACT • SYSTEM INTEGRATIONS  • CREATIVE CODING • FOTOGRAHPHER • WEB DESIGN • UI/UX • MOBILE APP DEVELOPMENT•  </span>
         </div>
       </div>
     </div>
