@@ -17,7 +17,7 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: 'apotek-sadddasa',
+    id: 'apotek-saddasa',
     title: 'Apotek Sadddasa',
     category: 'HEALTHCARE',
     type: 'Team',
@@ -35,7 +35,7 @@ export const projects: Project[] = [
   },
   {
     id: 'saru-studio',
-    title: 'Saru Studio - Management',
+    title: 'Saru Studio - Project Management',
     category: 'MANAGEMENT',
     type: 'Team',
     year: '2026',
