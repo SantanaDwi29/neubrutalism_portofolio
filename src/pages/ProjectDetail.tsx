@@ -15,6 +15,15 @@ export const ProjectDetail = () => {
     if (!project && id) {
       console.error(`Project with id ${id} not found`);
     }
+
+    // Auto-play slideshow
+    if (project && project.images.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % project.images.length);
+      }, 3000); // Change image every 3 seconds
+
+      return () => clearInterval(interval);
+    }
   }, [id, project]);
 
   if (!project) {

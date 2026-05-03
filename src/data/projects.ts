@@ -56,6 +56,7 @@ export const projects: Project[] = [
     challenges: 'Implementing real-time data synchronization and building a dynamic Kanban board with drag-and-drop functionality using modern web technologies.',
     color: 'bg-secondary-container'
   },
+
   {
     id: 'kitagiat',
     title: 'Kitagiat Absensi SaaS',
@@ -78,6 +79,34 @@ export const projects: Project[] = [
     tech: ['Laravel', 'MySQL', 'React', 'TypeScript', 'Tailwind CSS', 'PHP Excel', 'PDF Generator', 'React Scanner', 'WhatsApp API (Balzz In)'],
     challenges: 'Integrating diverse services like WhatsApp for notifications and PHP Excel for reporting, while ensuring the QR scanner component remains responsive across different mobile browsers.',
     liveLink: 'https://absensi.kitagiat.com/',
+    color: 'bg-tertiary-container'
+  },
+  {
+    id: 'kitagiat-admin',
+    title: 'Kitagiat Admin Portal',
+    category: 'SaaS MODULE',
+    type: 'Internship',
+    year: '2025',
+    description: 'A centralized administration portal for the Kitagiat SaaS ecosystem. This module handles user management, role-based access control (RBAC), and global system configurations for CV Sinar Teknologi Indonesia.',
+    images: [
+      '/projectt/kitagiat/AdminPortal/1.png',
+      '/projectt/kitagiat/AdminPortal/2.png',
+      '/projectt/kitagiat/AdminPortal/3.png',
+      '/projectt/kitagiat/AdminPortal/4.png',
+      '/projectt/kitagiat/AdminPortal/5.png',
+      '/projectt/kitagiat/AdminPortal/6.png',
+      '/projectt/kitagiat/AdminPortal/7.png',
+      '/projectt/kitagiat/AdminPortal/8.png',
+      '/projectt/kitagiat/AdminPortal/9.png',
+      '/projectt/kitagiat/AdminPortal/10.png',
+      '/projectt/kitagiat/AdminPortal/11.png',
+      '/projectt/kitagiat/AdminPortal/12.png',
+      '/projectt/kitagiat/AdminPortal/13.png'
+    ],
+    role: 'Full-stack Developer',
+    tech: ['Laravel', 'MySQL', 'React', 'TypeScript', 'Tailwind CSS', 'PHP Excel', 'PDF Generator'],
+    challenges: 'Designing a secure and scalable RBAC system that integrates seamlessly with other Kitagiat modules while maintaining a unified administrative experience.',
+    liveLink: 'https://admin.kitagiat.com/',
     color: 'bg-tertiary-container'
   },
   {
