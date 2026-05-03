@@ -33,6 +33,20 @@ export const projects: Project[] = [
     color: 'bg-tertiary-container'
   },
   {
+    id: 'jagadhita-view',
+    title: 'Jagadhita Green View',
+    category: 'PHOTOGRAPHY',
+    type: 'Individual',
+    year: '2025',
+    description: 'A professional photography service platform showcasing a stunning portfolio of landscape, event, and portrait photography. Designed to provide a seamless booking experience for clients.',
+    images: ['/projectt/jagadhita.png'],
+    role: 'Frontend Developer',
+    tech: ['React', 'TypeScript', 'Tailwind CSS'],
+    challenges: 'Optimizing high-resolution images for fast loading speeds while maintaining visual quality and implementing fluid gallery animations.',
+    link: 'https://jagadhita-green-view.vercel.app/',
+    color: 'bg-tertiary-container'
+  },
+  {
     id: 'sapa-baru',
     title: 'Sapa Baru - Pendataan Penduduk',
     category: 'GOVERNMENT',
@@ -107,6 +121,7 @@ export const projects: Project[] = [
     challenges: 'Building a responsive  product filtering system and ensuring  payment processing.',
     color: 'bg-primary-container'
   },
+
   {
     id: 'wedding-invite',
     title: 'Wedding Invitation System',

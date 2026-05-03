@@ -25,7 +25,7 @@ export const Contact: React.FC = () => {
           <p className="font-body-md opacity-80">Currently accepting new projects for Q4 2025.</p>
         </div>
         <div className="mt-8 space-y-4">
-          <a className="block text-xl font-headline-md uppercase border-b-2 border-primary-container pb-2 hover:text-primary-container transition-colors" href="mailto:hello@santana.os">hello@santana.os</a>
+          <a className="block text-xl font-headline-md uppercase border-b-2 border-primary-container pb-2 hover:text-primary-container transition-colors"></a>
           <div className="flex gap-4">
             <span className="material-symbols-outlined text-primary-container" data-icon="link">link</span>
             <div className="flex gap-4 items-center font-label-bold uppercase text-xs">
