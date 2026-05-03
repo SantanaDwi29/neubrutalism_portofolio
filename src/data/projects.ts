@@ -23,8 +23,15 @@ export const projects: Project[] = [
     year: '2025',
     description: 'A robust SaaS module designed for educational institutions to manage attendance for teachers, students, and staff. Featuring QR-based check-ins, real-time reporting, and a comprehensive management dashboard.',
     images: [
+      '/projectt/kitagiat/1.png',
+      '/projectt/kitagiat/2.png',
+      '/projectt/kitagiat/3.png',
+      '/projectt/kitagiat/4.png',
+      '/projectt/kitagiat/5.png',
+      '/projectt/kitagiat/6.png',
       '/projectt/kitagiat/kitagiat_absensi.png',
-      '/projectt/kitagiat/Screenshot 2025-11-30 214458.png'
+      '/projectt/kitagiat/Screenshot 2025-11-30 214458.png',
+
     ],
     role: 'Full-stack Developer',
     tech: ['Laravel', 'MySQL', 'React', 'TypeScript', 'Tailwind CSS', 'PHP Excel', 'PDF Generator', 'React Scanner', 'WhatsApp API (Balzz In)'],
