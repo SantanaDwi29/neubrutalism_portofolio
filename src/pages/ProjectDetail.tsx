@@ -67,11 +67,11 @@ export const ProjectDetail = () => {
 
       {/* Hero Image / Slideshow */}
       <div className="relative group">
-        <div className="w-full h-64 md:h-[550px] border-[3px] border-black hard-shadow-lg overflow-hidden rotate-1 bg-black">
+        <div className="w-full h-64 md:h-[600px] border-[3px] border-black hard-shadow-lg overflow-hidden rotate-1 bg-[#1A1A1A] flex items-center justify-center">
           <img 
             src={project.images[currentImageIndex]} 
             alt={`${project.title} - Image ${currentImageIndex + 1}`} 
-            className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-700" 
+            className="max-w-full max-h-full object-contain opacity-95 group-hover:opacity-100 transition-all duration-700" 
           />
         </div>
 

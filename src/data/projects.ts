@@ -33,6 +33,41 @@ export const projects: Project[] = [
     color: 'bg-tertiary-container'
   },
   {
+    id: 'sapa-baru',
+    title: 'Sapa Baru - Pendataan Penduduk',
+    category: 'GOVERNMENT',
+    type: 'Individual',
+    year: '2025',
+    description: 'A population data collection and management system designed for local government units. Features citizen registration, data verification, and comprehensive resident records.',
+    images: [
+      '/projectt/sapabaru/awalpage.png',
+      '/projectt/sapabaru/login.png',
+      '/projectt/sapabaru/register.png',
+      '/projectt/sapabaru/tambah=pendatang.png',
+      '/projectt/sapabaru/verifikasi.png',
+      '/projectt/sapabaru/view,data.png'
+    ],
+    role: 'Full-stack Developer',
+    tech: ['Laravel', 'MySQL', 'Bootstrap', 'JavaScript', 'jQuery'],
+    challenges: 'Ensuring data security and privacy for citizen information while maintaining an easy-to-use interface for village officials.',
+    color: 'bg-primary-container'
+  },
+
+  {
+    id: 'makanan-app',
+    title: 'Foodie Delivery',
+    category: 'E-COMMERCE',
+    type: 'Individual',
+    year: '2025',
+    description: 'A food delivery application that allows users to browse menus, order food, and track deliveries in real-time.',
+    images: ['/projectt/makanan.png'],
+    role: 'Full-stack Developer',
+    tech: ['Flutter', 'Dart'],
+    challenges: 'Integrating location tracking and managing  order processing.',
+    color: 'bg-tertiary-container'
+  },
+
+  {
     id: 'assafarma',
     title: 'Assa Farma Management',
     category: 'MANAGEMENT',
@@ -49,7 +84,7 @@ export const projects: Project[] = [
     id: 'dss-system',
     title: 'Decision Support System',
     category: 'DATA SCIENCE',
-    type: 'Individual',
+    type: 'Team',
     year: '2024',
     description: 'A system that helps in making decisions based on various criteria using specific algorithms. Designed to provide analytical insights for business or academic purposes.',
     images: ['/projectt/dss.png'],
@@ -58,19 +93,7 @@ export const projects: Project[] = [
     challenges: 'Implementing algorithms for decision making and presenting the results in an easy-to-understand visual format.',
     color: 'bg-secondary-container'
   },
-  {
-    id: 'makanan-app',
-    title: 'Foodie Delivery',
-    category: 'E-COMMERCE',
-    type: 'Individual',
-    year: '2023',
-    description: 'A food delivery application that allows users to browse menus, order food, and track deliveries in real-time.',
-    images: ['/projectt/makanan.png'],
-    role: 'Full-stack Developer',
-    tech: ['Flutter', 'Dart'],
-    challenges: 'Integrating location tracking and managing  order processing.',
-    color: 'bg-tertiary-container'
-  },
+
   {
     id: 'shop-platform',
     title: 'Modern E-Shop',
@@ -88,7 +111,7 @@ export const projects: Project[] = [
     id: 'wedding-invite',
     title: 'Wedding Invitation System',
     category: 'WEB APP',
-    type: 'Individual',
+    type: 'Team',
     year: '2023',
     description: 'A digital wedding invitation platform featuring RSVP management, guest lists, and interactive event details.',
     images: ['/projectt/wedding.png'],

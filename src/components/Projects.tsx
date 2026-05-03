@@ -29,31 +29,31 @@ export const Projects = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           {internshipProjects.map((project) => (
-            <div key={project.id} className="md:col-span-12 grid grid-cols-1 md:grid-cols-2 bg-white border-[3px] border-black hard-shadow-lg overflow-hidden group">
-              <Link to={`/project/${project.id}`} className="h-64 md:h-[400px] border-b-[3px] md:border-b-0 md:border-r-[3px] border-black overflow-hidden relative block">
+            <div key={project.id} className="md:col-span-12 grid grid-cols-1 md:grid-cols-2 bg-surface-container-high border-[3px] border-black hard-shadow-lg overflow-hidden group">
+              <Link to={`/project/${project.id}`} className="h-64 md:h-[380px] border-b-[3px] md:border-b-0 md:border-r-[3px] border-black overflow-hidden relative block bg-surface-dim">
                 <img 
                   alt={project.title} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100" 
                   src={project.images[0]}
                 />
-                <div className="absolute top-4 left-4 bg-tertiary-container border-2 border-black px-3 py-1 text-xs font-label-bold uppercase -rotate-2">
+                <div className="absolute top-4 left-4 bg-tertiary-container border-2 border-black px-3 py-1 text-[10px] font-label-bold uppercase -rotate-2 hard-shadow-sm">
                   Featured Project
                 </div>
               </Link>
-              <div className="p-8 md:p-12 space-y-6 flex flex-col justify-center bg-surface-container-high">
+              <div className="p-6 md:p-10 space-y-4 flex flex-col justify-center">
                 <div className="flex gap-2">
-                  <span className="bg-primary-container border-2 border-black px-3 py-1 text-xs font-label-bold uppercase rotate-1">{project.category}</span>
-                  <span className="bg-tertiary-container text-white border-2 border-black px-3 py-1 text-xs font-label-bold uppercase -rotate-1">{project.year}</span>
+                  <span className="bg-primary-container border-2 border-black px-2 py-0.5 text-[10px] font-label-bold uppercase rotate-1">{project.category}</span>
+                  <span className="bg-tertiary-container text-white border-2 border-black px-2 py-0.5 text-[10px] font-label-bold uppercase -rotate-1">{project.year}</span>
                 </div>
-                <h3 className="font-headline-md text-3xl md:text-4xl uppercase leading-tight">{project.title}</h3>
-                <p className="font-body-md text-lg opacity-80">{project.description}</p>
+                <h3 className="font-headline-md text-2xl md:text-3xl uppercase leading-tight">{project.title}</h3>
+                <p className="font-body-md text-base opacity-80 line-clamp-3">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
-                  {project.tech.slice(0, 4).map((t, i) => (
-                    <span key={i} className="font-label-bold text-[10px] uppercase border border-black/20 px-2 py-0.5">#{t}</span>
+                  {project.tech.slice(0, 5).map((t, i) => (
+                    <span key={i} className="font-label-bold text-[9px] uppercase border border-black/30 px-2 py-0.5 bg-white/50">#{t}</span>
                   ))}
                 </div>
-                <Link to={`/project/${project.id}`} className="bg-black text-white px-8 py-3 font-label-bold uppercase neubrutalist-btn flex items-center gap-2 w-max mt-4">
-                  View Case Study <span className="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+                <Link to={`/project/${project.id}`} className="bg-black text-white px-6 py-2 font-label-bold uppercase hover:bg-primary transition-colors flex items-center gap-2 w-max mt-2 hard-shadow-sm active:translate-x-0.5 active:translate-y-0.5 active:shadow-none">
+                  View Case Study <span className="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
                 </Link>
               </div>
             </div>
