@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { DecorativeElements } from './DecorativeElements';
 
 export const Experience: React.FC = () => {
   return (
-    <section id="experience" className="space-y-12">
+    <section id="experience" className="relative space-y-12">
+      <DecorativeElements mode="shapes" opacity="opacity-30" />
       <h2 className="font-headline-lg text-3xl md:text-headline-lg uppercase flex items-center gap-4 flex-wrap">
         <span className="material-symbols-outlined text-3xl md:text-4xl" data-icon="work_history">work_history</span> Experience
       </h2>

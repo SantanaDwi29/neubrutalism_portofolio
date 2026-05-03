@@ -1,6 +1,7 @@
 
 
 import React, { useState, useEffect } from 'react';
+import { DecorativeElements } from './DecorativeElements';
 
 export const Hero: React.FC = () => {
   const roles = [
@@ -38,7 +39,8 @@ export const Hero: React.FC = () => {
   }, [currentText, isDeleting, currentRoleIndex]);
 
   return (
-    <>
+    <div className="relative">
+      <DecorativeElements />
       <section className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center animate-fade-in-up">
         <div className="md:col-span-8 space-y-8 md:-rotate-1">
           <div className="inline-block bg-tertiary-container border-2 border-black px-4 py-1 hard-shadow text-on-tertiary-container font-label-bold uppercase">
@@ -46,7 +48,12 @@ export const Hero: React.FC = () => {
           </div>
           <h1 className="font-headline-xl text-[48px] leading-tight sm:text-[64px] md:text-headline-xl uppercase min-h-[3em] sm:min-h-0">
             Hi, <br className="hidden sm:block" />I'm  Santa <br className="hidden sm:block" />
-            <span className="bg-primary-container px-2">{currentText}</span>
+            <span className="relative inline-block">
+              <span className="bg-primary-container px-2">{currentText}</span>
+              <svg className="absolute -bottom-2 left-0 w-full h-2 opacity-70" viewBox="0 0 100 20" preserveAspectRatio="none">
+                <path d="M0,10 Q10,0 20,10 T40,10 T60,10 T80,10 T100,10" fill="none" stroke="black" strokeWidth="4" className="animate-pulse" />
+              </svg>
+            </span>
             <span className="animate-pulse">_</span>
           </h1>
           <p className="font-body-lg text-body-lg max-w-xl">
@@ -92,6 +99,6 @@ export const Hero: React.FC = () => {
           <span>UI/UX DESIGN • FULL-STACK DEVELOPMENT • BRANDING • MOTION GRAPHICS • CREATIVE CODING • </span>
         </div>
       </div>
-    </>
+    </div>
   );
 };

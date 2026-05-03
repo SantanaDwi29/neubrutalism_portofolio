@@ -2,13 +2,15 @@
 
 import { Link } from 'react-router-dom';
 import { projects } from '../data/projects';
+import { DecorativeElements } from './DecorativeElements';
 
 export const Projects = () => {
   const internshipProjects = projects.filter(p => p.type === 'Internship' || p.type === 'Team');
   const individualProjects = projects.filter(p => p.type === 'Individual');
 
   return (
-    <section id="work" className="space-y-16">
+    <section id="work" className="relative space-y-16">
+      <DecorativeElements mode="mixed" opacity="opacity-30" />
       <div className="flex justify-between items-center md:items-end flex-wrap gap-4">
         <div className="space-y-2">
           <h2 className="font-headline-lg text-3xl md:text-headline-lg uppercase">Selected Works</h2>

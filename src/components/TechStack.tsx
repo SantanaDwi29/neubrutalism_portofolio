@@ -1,8 +1,10 @@
-
+import React from 'react';
+import { DecorativeElements } from './DecorativeElements';
 
 export const TechStack: React.FC = () => {
   return (
-    <section id="stack" className="space-y-12">
+    <section id="stack" className="relative space-y-12">
+      <DecorativeElements mode="dots" opacity="opacity-30" />
       <h2 className="font-headline-lg text-3xl md:text-headline-lg uppercase flex items-center gap-4 flex-wrap">
         <span className="material-symbols-outlined text-3xl md:text-4xl" data-icon="code">code</span> Tech Stack
       </h2>

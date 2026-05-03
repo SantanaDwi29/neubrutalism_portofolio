@@ -1,8 +1,10 @@
 
+import { DecorativeElements } from './DecorativeElements';
 
 export const Contact: React.FC = () => {
   return (
-    <section id="about" className="grid grid-cols-1 md:grid-cols-12 gap-8">
+    <section id="about" className="relative grid grid-cols-1 md:grid-cols-12 gap-8">
+      <DecorativeElements mode="dots" opacity="opacity-30" />
       <div className="md:col-span-7 bg-white border-[3px] border-black p-8 md:p-12 hard-shadow space-y-6 md:rotate-1">
         <h2 className="font-headline-md text-2xl md:text-headline-md uppercase">The Philosophy</h2>
         <p className="font-body-lg text-body-lg">
