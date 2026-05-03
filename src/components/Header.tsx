@@ -35,9 +35,7 @@ export const Header: React.FC = () => {
       </nav>
 
       <div className="flex items-center gap-3">
-        <button className="hidden sm:block bg-primary-container text-black border-[3px] border-black px-4 py-2 font-['IBM_Plex_Mono'] font-bold uppercase tracking-tight hard-shadow neubrutalist-btn text-xs md:text-sm">
-          CONTACT
-        </button>
+
 
         {/* Mobile Menu Toggle */}
         <button
