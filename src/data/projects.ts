@@ -17,6 +17,46 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: 'apotek-sadddasa',
+    title: 'Apotek Sadddasa',
+    category: 'HEALTHCARE',
+    type: 'Team',
+    year: '2026',
+    description: 'A comprehensive pharmacy management system designed to streamline inventory tracking, point of sale, and prescription management with real-time stock alerts.',
+    images: [
+      '/projectt/saddasa/1.png',
+      '/projectt/saddasa/2.png',
+      '/projectt/saddasa/3.png'
+    ],
+    role: 'Full-stack Developer',
+    tech: ['Laravel', 'React', 'TypeScript', 'MySQL', 'Tailwind CSS', 'Spatie', 'Php Excel', 'React Scanner'],
+    challenges: 'Developing a highly accurate inventory system that handles thousands of SKU items and managing complex pharmaceutical regulations for prescription tracking.',
+    color: 'bg-primary-container'
+  },
+  {
+    id: 'saru-studio',
+    title: 'Saru Studio - Management',
+    category: 'MANAGEMENT',
+    type: 'Team',
+    year: '2026',
+    description: 'A comprehensive project management platform developed for Saru Studio to track project progress, resource allocation, and team collaboration effectively.',
+    images: [
+      '/projectt/sarustudio/1.png',
+      '/projectt/sarustudio/2.png',
+      '/projectt/sarustudio/3.png',
+      '/projectt/sarustudio/4.png',
+      '/projectt/sarustudio/5.png',
+      '/projectt/sarustudio/6.png',
+      '/projectt/sarustudio/7.png',
+      '/projectt/sarustudio/8.png',
+      '/projectt/sarustudio/9.png'
+    ],
+    role: 'Full-stack Developer',
+    tech: ['Laravel', 'React', 'TypeScript', 'MySQL', 'Tailwind CSS', 'Spatie', 'Php Excel', 'React Scanner', 'React Location'],
+    challenges: 'Implementing real-time data synchronization and building a dynamic Kanban board with drag-and-drop functionality using modern web technologies.',
+    color: 'bg-secondary-container'
+  },
+  {
     id: 'kitagiat',
     title: 'Kitagiat Absensi SaaS',
     category: 'SaaS MODULE',
