@@ -10,7 +10,8 @@ export interface Project {
   role: string;
   tech: string[];
   challenges: string;
-  link?: string;
+  liveLink?: string;
+  githubLink?: string;
   color?: string;
 }
 
@@ -36,7 +37,7 @@ export const projects: Project[] = [
     role: 'Full-stack Developer',
     tech: ['Laravel', 'MySQL', 'React', 'TypeScript', 'Tailwind CSS', 'PHP Excel', 'PDF Generator', 'React Scanner', 'WhatsApp API (Balzz In)'],
     challenges: 'Integrating diverse services like WhatsApp for notifications and PHP Excel for reporting, while ensuring the QR scanner component remains responsive across different mobile browsers.',
-    link: 'https://absensi.kitagiat.com/',
+    liveLink: 'https://absensi.kitagiat.com/',
     color: 'bg-tertiary-container'
   },
   {
@@ -50,7 +51,7 @@ export const projects: Project[] = [
     role: 'Frontend Developer',
     tech: ['React', 'TypeScript', 'Tailwind CSS'],
     challenges: 'Optimizing high-resolution images for fast loading speeds while maintaining visual quality and implementing fluid gallery animations.',
-    link: 'https://jagadhita-green-view.vercel.app/',
+    liveLink: 'https://jagadhita-green-view.vercel.app/',
     color: 'bg-tertiary-container'
   },
   {
@@ -71,7 +72,8 @@ export const projects: Project[] = [
     role: 'Full-stack Developer',
     tech: ['Laravel', 'MySQL', 'Bootstrap', 'JavaScript', 'jQuery'],
     challenges: 'Ensuring data security and privacy for citizen information while maintaining an easy-to-use interface for village officials.',
-    color: 'bg-primary-container'
+    color: 'bg-primary-container',
+    githubLink: 'https://github.com/SantanaDwi29/Sapa-Baru-Website.git'
   },
 
   {
@@ -85,7 +87,8 @@ export const projects: Project[] = [
     role: 'Full-stack Developer',
     tech: ['Flutter', 'Dart'],
     challenges: 'Integrating location tracking and managing  order processing.',
-    color: 'bg-tertiary-container'
+    color: 'bg-tertiary-container',
+    githubLink: 'https://github.com/SantanaDwi29/Pemesanan-Makanan-Pojok-Rasa-Mobile'
   },
 
   {
@@ -99,7 +102,8 @@ export const projects: Project[] = [
     role: 'Full-stack Developer',
     tech: ['Codeigniter', 'Tailwind CSS', 'jQuery', 'JavaScript', 'PHP', 'AJAX', 'SweetAlert2', 'MySQL'],
     challenges: 'Managing complex inventory relationships and ensuring accurate stock tracking across multiple drug categories.',
-    color: 'bg-primary-container'
+    color: 'bg-primary-container',
+    githubLink: 'https://github.com/SantanaDwi29/Website-Kasir-Apotek'
   },
   {
     id: 'dss-system',
@@ -112,7 +116,8 @@ export const projects: Project[] = [
     role: 'Frontend Developer & Analyst',
     tech: ['Javascript', 'php', 'HTML', 'Tailwind CSS'],
     challenges: 'Implementing algorithms for decision making and presenting the results in an easy-to-understand visual format.',
-    color: 'bg-secondary-container'
+    color: 'bg-secondary-container',
+    githubLink: 'https://github.com/SantanaDwi29/SPK-Pemilihan-HP'
   },
 
   {
@@ -126,7 +131,9 @@ export const projects: Project[] = [
     role: 'Frontend Developer',
     tech: ['HTML', 'CSS', 'Javascript'],
     challenges: 'Building a responsive  product filtering system and ensuring  payment processing.',
-    color: 'bg-primary-container'
+    color: 'bg-primary-container',
+    liveLink: 'https://walky-way-shoes.netlify.app/',
+    githubLink: 'https://github.com/SantanaDwi29/WalkyWay-Shoes'
   },
 
   {
@@ -140,7 +147,9 @@ export const projects: Project[] = [
     role: 'Frontend Developer',
     tech: ['HTML', 'CSS', 'Javascript'],
     challenges: 'Creating simple animations that work smoothly on all devices while maintaining a small bundle size for fast loading.',
-    color: 'bg-secondary-container'
+    color: 'bg-secondary-container',
+    githubLink: 'https://github.com/SantanaDwi29/Undangan-Digital',
+    liveLink: 'https://undangan-digital-putra-putri.netlify.app/'
   }
 ];
 

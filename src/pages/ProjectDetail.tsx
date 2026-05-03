@@ -146,14 +146,28 @@ export const ProjectDetail = () => {
             </p>
           </div>
 
-          <a 
-            href={project.link || "#"} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="block w-full text-center bg-primary text-white border-[3px] border-black py-4 font-label-bold uppercase text-xl hard-shadow neubrutalist-btn"
-          >
-            {project.link ? 'View Live Project' : 'Project Documentation'}
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4">
+            {project.liveLink && (
+              <a 
+                href={project.liveLink} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex-1 text-center bg-primary text-white border-[3px] border-black py-4 font-label-bold uppercase text-xl hard-shadow neubrutalist-btn flex items-center justify-center gap-2 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all"
+              >
+                Live Demo <span className="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
+              </a>
+            )}
+            {project.githubLink && (
+              <a 
+                href={project.githubLink} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex-1 text-center bg-white text-black border-[3px] border-black py-4 font-label-bold uppercase text-xl hard-shadow neubrutalist-btn flex items-center justify-center gap-2 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all"
+              >
+                Source Code <span className="material-symbols-outlined text-sm" data-icon="code">code</span>
+              </a>
+            )}
+          </div>
         </div>
 
       </section>
