@@ -1,20 +1,39 @@
-import { useParams, Link } from 'react-router-dom';
+
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import { projects } from '../data/projects';
+import { useEffect, useState } from 'react';
 
 export const ProjectDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  const project = projects.find(p => p.id === id);
 
-  // Mock data for the project
-  const project = {
-    title: id === 'ghost-zine' ? 'Ghost Zine Archive' : 'Neptune Finance Platform',
-    category: id === 'ghost-zine' ? 'ARCHIVE' : 'FINTECH',
-    year: '2023',
-    description: 'A revolutionary interface designed for the next generation of digital assets. Featuring real-time analytics and heavy grid-based UI. We challenged the conventional soft-UI norms of fintech by introducing a highly rigid, brutalist approach to data visualization.',
-    image: id === 'ghost-zine' 
-      ? 'https://lh3.googleusercontent.com/aida-public/AB6AXuBR-mCK-67ymH1Pm4PhvCdDxK748VHLQyuHm2s17CTEh7JolZp7bkebWXVucmid6DVWVcin0P0cXsgDJGjE8Qb1hMwDlhlZjy15B_qv1L1L80TzZfKyOXyxwbo3Jh_pJ3byMypvOH0iD_RB-UQbR92bmI156Py2QrqEsfV-3awqrKr0xxxNYOnAIXTn3SElTddlY-Sm6LmULBEmPFfyuFBWkVAaoTnd-a2MMEncnVsLcO_b_sVUXkQHdWgbl8afCvBCcpvtshBQk0bF' 
-      : 'https://lh3.googleusercontent.com/aida-public/AB6AXuCmvrceUzHpvBS9jegXWJegK4C1yqla640KUOpgESKHWT6Sg9YFOhsbDGo3PzBCVyxdxwq_UErZf3Db-U1xgGfh43y-Y5sBvgPu062MOkhse7Ba1Vg6z7bqH7t-yP0qGzGgv-qfytis0wK3lT7kipWTp4RI_2Yi6MKp48-C2U1rdUq7r8Hugf86wjzcyjO31KC_Lj6XKfzjinJ83FTzyFdkCteIv8GDNN7sD38cg68WHUXWStcVBELriYfUXSDGX4VLCnHM-PLxm6Ne',
-    role: 'Lead Designer & Developer',
-    tech: ['React', 'TypeScript', 'Tailwind', 'Zustand', 'Framer Motion'],
-    challenges: 'The biggest challenge was maintaining high performance with heavy SVG filters and custom borders while rendering 1000+ data points per second. We solved this by offloading the rendering to a WebGL canvas and using requestAnimationFrame for smooth animations.',
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    if (!project && id) {
+      console.error(`Project with id ${id} not found`);
+    }
+  }, [id, project]);
+
+  if (!project) {
+    return (
+      <div className="min-h-[60vh] flex flex-col items-center justify-center space-y-6">
+        <h1 className="font-headline-xl text-4xl uppercase">Project Not Found</h1>
+        <Link to="/" className="bg-black text-white px-6 py-3 font-label-bold uppercase neubrutalist-btn">
+          Back to Home
+        </Link>
+      </div>
+    );
+  }
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % project.images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + project.images.length) % project.images.length);
   };
 
   return (
@@ -31,21 +50,65 @@ export const ProjectDetail = () => {
       {/* Header Section */}
       <section className="space-y-6">
         <div className="flex gap-2">
-          <span className="bg-primary-container border-2 border-black px-4 py-2 font-label-bold uppercase rotate-1 hard-shadow">{project.category}</span>
-          <span className="bg-tertiary-container text-white border-2 border-black px-4 py-2 font-label-bold uppercase -rotate-1 hard-shadow">{project.year}</span>
+          <span className={`${project.color || 'bg-primary-container'} border-2 border-black px-4 py-2 font-label-bold uppercase rotate-1 hard-shadow`}>
+            {project.category}
+          </span>
+          <span className="bg-tertiary-container text-white border-2 border-black px-4 py-2 font-label-bold uppercase -rotate-1 hard-shadow">
+            {project.year}
+          </span>
+          <span className="bg-white border-2 border-black px-4 py-2 font-label-bold uppercase rotate-2 hard-shadow">
+            {project.type}
+          </span>
         </div>
-        <h1 className="font-headline-xl text-5xl md:text-7xl uppercase border-b-[6px] border-black pb-4">
+        <h1 className="font-headline-xl text-4xl md:text-7xl uppercase border-b-[6px] border-black pb-4">
           {project.title}
         </h1>
       </section>
 
-      {/* Hero Image */}
-      <div className="w-full h-64 md:h-[500px] border-[3px] border-black hard-shadow-lg overflow-hidden rotate-1 bg-black">
-        <img src={project.image} alt={project.title} className="w-full h-full object-cover opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-500" />
+      {/* Hero Image / Slideshow */}
+      <div className="relative group">
+        <div className="w-full h-64 md:h-[550px] border-[3px] border-black hard-shadow-lg overflow-hidden rotate-1 bg-black">
+          <img 
+            src={project.images[currentImageIndex]} 
+            alt={`${project.title} - Image ${currentImageIndex + 1}`} 
+            className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-700" 
+          />
+        </div>
+
+        {/* Slider Controls */}
+        {project.images.length > 1 && (
+          <div className="absolute inset-0 flex items-center justify-between px-4 pointer-events-none">
+            <button 
+              onClick={prevImage}
+              className="pointer-events-auto bg-white border-[3px] border-black p-2 hard-shadow hover:bg-primary-container transition-colors active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+            >
+              <span className="material-symbols-outlined block" data-icon="chevron_left">chevron_left</span>
+            </button>
+            <button 
+              onClick={nextImage}
+              className="pointer-events-auto bg-white border-[3px] border-black p-2 hard-shadow hover:bg-primary-container transition-colors active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+            >
+              <span className="material-symbols-outlined block" data-icon="chevron_right">chevron_right</span>
+            </button>
+          </div>
+        )}
+
+        {/* Slider Indicators */}
+        {project.images.length > 1 && (
+          <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 flex gap-2">
+            {project.images.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentImageIndex(index)}
+                className={`w-3 h-3 border-2 border-black ${index === currentImageIndex ? 'bg-black' : 'bg-white'}`}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Details Grid */}
-      <section className="grid grid-cols-1 md:grid-cols-12 gap-8">
+      <section className="grid grid-cols-1 md:grid-cols-12 gap-8 pt-4">
         
         {/* Left Column - Info */}
         <div className="md:col-span-4 space-y-8">
@@ -54,7 +117,7 @@ export const ProjectDetail = () => {
             <p className="font-body-md font-bold">{project.role}</p>
           </div>
           
-          <div className="bg-secondary-container border-[3px] border-black p-6 hard-shadow rotate-1">
+          <div className="bg-surface-container-highest border-[3px] border-black p-6 hard-shadow rotate-1">
             <h3 className="font-headline-md text-2xl uppercase border-b-2 border-black pb-2 mb-4 text-white">Tech Stack</h3>
             <div className="flex flex-wrap gap-2">
               {project.tech.map((t, i) => (
@@ -65,7 +128,7 @@ export const ProjectDetail = () => {
         </div>
 
         {/* Right Column - Content */}
-        <div className="md:col-span-8 bg-surface-container-highest text-white border-[3px] border-black p-8 md:p-12 hard-shadow space-y-8">
+        <div className="md:col-span-8 bg-surface-container text-black border-[3px] border-black p-8 md:p-12 hard-shadow space-y-8">
           <div>
             <h2 className="font-headline-lg text-3xl uppercase mb-4 flex items-center gap-2">
               <span className="material-symbols-outlined text-4xl" data-icon="info">info</span>
@@ -77,18 +140,25 @@ export const ProjectDetail = () => {
           </div>
           
           <div className="bg-white text-black border-[3px] border-black p-6 shadow-[inset_4px_4px_0px_0px_rgba(0,0,0,1)]">
-            <h2 className="font-headline-md text-2xl uppercase mb-4 text-secondary">The Challenge</h2>
+            <h2 className="font-headline-md text-2xl uppercase mb-4 text-primary">The Challenge</h2>
             <p className="font-body-md">
               {project.challenges}
             </p>
           </div>
 
-          <button className="w-full bg-primary text-on-primary border-[3px] border-black py-4 font-label-bold uppercase text-xl hard-shadow neubrutalist-btn">
-            View Live Site
-          </button>
+          <a 
+            href={project.link || "#"} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="block w-full text-center bg-primary text-white border-[3px] border-black py-4 font-label-bold uppercase text-xl hard-shadow neubrutalist-btn"
+          >
+            {project.link ? 'View Live Project' : 'Project Documentation'}
+          </a>
         </div>
 
       </section>
     </main>
   );
 };
+
+

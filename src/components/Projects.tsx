@@ -1,78 +1,102 @@
 
+
 import { Link } from 'react-router-dom';
+import { projects } from '../data/projects';
 
 export const Projects = () => {
+  const internshipProjects = projects.filter(p => p.type === 'Internship' || p.type === 'Team');
+  const individualProjects = projects.filter(p => p.type === 'Individual');
+
   return (
-    <section id="work" className="space-y-12">
+    <section id="work" className="space-y-16">
       <div className="flex justify-between items-center md:items-end flex-wrap gap-4">
-        <h2 className="font-headline-lg text-3xl md:text-headline-lg uppercase">Selected Works</h2>
-        <a className="font-label-bold uppercase underline decoration-2 underline-offset-4 mb-2" href="#">View All (12)</a>
+        <div className="space-y-2">
+          <h2 className="font-headline-lg text-3xl md:text-headline-lg uppercase">Selected Works</h2>
+          <p className="font-body-md text-on-surface/70 max-w-xl">
+            A collection of my recent projects, categorized by my role and project nature.
+          </p>
+        </div>
+
+        <a className="font-label-bold uppercase underline decoration-2 underline-offset-4 mb-2 hover:text-primary transition-colors" href="#">View All ({projects.length})</a>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-        {/* Large Project Card */}
-        <div className="md:col-span-8 bg-white border-[3px] border-black hard-shadow overflow-hidden flex flex-col group">
-          <Link to="/project/neptune-finance" className="h-64 md:h-96 border-b-[3px] border-black overflow-hidden block">
-            <img 
-              alt="Fintech Dashboard" 
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmvrceUzHpvBS9jegXWJegK4C1yqla640KUOpgESKHWT6Sg9YFOhsbDGo3PzBCVyxdxwq_UErZf3Db-U1xgGfh43y-Y5sBvgPu062MOkhse7Ba1Vg6z7bqH7t-yP0qGzGgv-qfytis0wK3lT7kipWTp4RI_2Yi6MKp48-C2U1rdUq7r8Hugf86wjzcyjO31KC_Lj6XKfzjinJ83FTzyFdkCteIv8GDNN7sD38cg68WHUXWStcVBELriYfUXSDGX4VLCnHM-PLxm6Ne"
-            />
-          </Link>
-          <div className="p-8 space-y-4">
-            <div className="flex gap-2">
-              <span className="bg-primary-container border-2 border-black px-3 py-1 text-xs font-label-bold uppercase rotate-1">FINTECH</span>
-              <span className="bg-tertiary-container text-white border-2 border-black px-3 py-1 text-xs font-label-bold uppercase -rotate-1">2023</span>
-            </div>
-            <Link to="/project/neptune-finance" className="no-underline text-black hover:text-primary transition-colors">
-              <h3 className="font-headline-md text-headline-md uppercase">Neptune Finance Platform</h3>
-            </Link>
-            <p className="font-body-md text-body-md">A revolutionary banking interface designed for the next generation of digital assets. Featuring real-time analytics and heavy grid-based UI.</p>
-            <Link to="/project/neptune-finance" className="bg-black text-white px-6 py-2 font-label-bold uppercase neubrutalist-btn flex items-center gap-2 w-max">
-              Case Study <span className="material-symbols-outlined" data-icon="open_in_new">open_in_new</span>
-            </Link>
-          </div>
+
+      {/* Internship / Team Projects Section */}
+      <div className="space-y-8">
+        <div className="flex items-center gap-4">
+          <span className="bg-tertiary text-white px-4 py-1 font-label-bold uppercase border-2 border-black rotate-1">Team & Internship</span>
+          <div className="h-[2px] bg-black flex-1"></div>
         </div>
-        {/* Side Project Card */}
-        <div className="md:col-span-4 bg-primary-container border-[3px] border-black hard-shadow flex flex-col md:rotate-1">
-          <div className="p-8 flex-1 space-y-6">
-            <div className="w-16 h-16 bg-white border-[3px] border-black flex items-center justify-center -rotate-6">
-              <span className="material-symbols-outlined text-4xl" data-icon="shapes">shapes</span>
+        
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+          {internshipProjects.map((project) => (
+            <div key={project.id} className="md:col-span-12 grid grid-cols-1 md:grid-cols-2 bg-white border-[3px] border-black hard-shadow-lg overflow-hidden group">
+              <Link to={`/project/${project.id}`} className="h-64 md:h-[400px] border-b-[3px] md:border-b-0 md:border-r-[3px] border-black overflow-hidden relative block">
+                <img 
+                  alt={project.title} 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                  src={project.images[0]}
+                />
+                <div className="absolute top-4 left-4 bg-tertiary-container border-2 border-black px-3 py-1 text-xs font-label-bold uppercase -rotate-2">
+                  Featured Project
+                </div>
+              </Link>
+              <div className="p-8 md:p-12 space-y-6 flex flex-col justify-center bg-surface-container-high">
+                <div className="flex gap-2">
+                  <span className="bg-primary-container border-2 border-black px-3 py-1 text-xs font-label-bold uppercase rotate-1">{project.category}</span>
+                  <span className="bg-tertiary-container text-white border-2 border-black px-3 py-1 text-xs font-label-bold uppercase -rotate-1">{project.year}</span>
+                </div>
+                <h3 className="font-headline-md text-3xl md:text-4xl uppercase leading-tight">{project.title}</h3>
+                <p className="font-body-md text-lg opacity-80">{project.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.slice(0, 4).map((t, i) => (
+                    <span key={i} className="font-label-bold text-[10px] uppercase border border-black/20 px-2 py-0.5">#{t}</span>
+                  ))}
+                </div>
+                <Link to={`/project/${project.id}`} className="bg-black text-white px-8 py-3 font-label-bold uppercase neubrutalist-btn flex items-center gap-2 w-max mt-4">
+                  View Case Study <span className="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+                </Link>
+              </div>
             </div>
-            <h3 className="font-headline-md text-2xl uppercase">Design System OS</h3>
-            <p className="font-body-md text-sm">A centralized library of neubrutalist components for rapid prototyping and development consistency across global teams.</p>
-            <ul className="space-y-2 font-label-bold text-xs uppercase opacity-80">
-              <li>• Documentation</li>
-              <li>• Storybook</li>
-              <li>• Figma Plugin</li>
-            </ul>
-          </div>
-          <div className="p-8 border-t-[3px] border-black bg-white">
-            <Link to="/project/design-system" className="block w-full text-center border-[3px] border-black py-3 font-label-bold uppercase hard-shadow neubrutalist-btn">Preview</Link>
-          </div>
+          ))}
         </div>
-        {/* Horizontal Project */}
-        <div className="md:col-span-12 grid grid-cols-1 md:grid-cols-2 bg-secondary-container border-[3px] border-black hard-shadow md:-rotate-1 overflow-hidden">
-          <div className="order-2 md:order-1 p-8 md:p-12 space-y-6 flex flex-col items-start">
-            <h3 className="font-headline-md text-headline-lg uppercase text-white">Ghost Zine Archive</h3>
-            <p className="font-body-md text-white/90 text-lg">Digital preservation of underground punk zines from the 90s, utilizing OCR and interactive masonry layouts.</p>
-            <div className="flex flex-wrap gap-4 mb-4">
-              <div className="bg-white border-2 border-black px-4 py-2 font-label-bold text-sm uppercase">Next.js</div>
-              <div className="bg-white border-2 border-black px-4 py-2 font-label-bold text-sm uppercase">Cloudinary</div>
-              <div className="bg-white border-2 border-black px-4 py-2 font-label-bold text-sm uppercase">Canvas API</div>
+      </div>
+
+      {/* Individual Projects Section */}
+      <div className="space-y-8 pt-8">
+        <div className="flex items-center gap-4">
+          <span className="bg-primary text-white px-4 py-1 font-label-bold uppercase border-2 border-black -rotate-1">Individual Works</span>
+          <div className="h-[2px] bg-black flex-1"></div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {individualProjects.map((project, index) => (
+            <div key={project.id} 
+                 className={`bg-white border-[3px] border-black hard-shadow flex flex-col group transition-transform hover:-translate-y-1 ${index % 2 === 0 ? 'md:rotate-1' : 'md:-rotate-1'}`}>
+              <Link to={`/project/${project.id}`} className="h-48 border-b-[3px] border-black overflow-hidden block">
+                <img 
+                  alt={project.title} 
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" 
+                  src={project.images[0]}
+                />
+              </Link>
+              <div className="p-6 flex-1 flex flex-col space-y-4">
+                <div className="flex justify-between items-start">
+                  <span className="bg-secondary-container text-white border-2 border-black px-2 py-0.5 text-[10px] font-label-bold uppercase">{project.category}</span>
+                  <span className="font-label-bold text-xs">{project.year}</span>
+                </div>
+                <h3 className="font-headline-md text-xl uppercase group-hover:text-primary transition-colors">{project.title}</h3>
+                <p className="font-body-md text-sm line-clamp-2 opacity-70">{project.description}</p>
+                <div className="pt-4 mt-auto">
+                  <Link to={`/project/${project.id}`} className="block w-full text-center border-[3px] border-black py-2 font-label-bold uppercase hover:bg-black hover:text-white transition-colors hard-shadow-sm active:translate-x-0.5 active:translate-y-0.5 active:shadow-none">
+                    Details
+                  </Link>
+                </div>
+              </div>
             </div>
-            <Link to="/project/ghost-zine" className="mt-auto bg-black text-white px-6 py-2 font-label-bold uppercase neubrutalist-btn flex items-center gap-2">
-              Case Study <span className="material-symbols-outlined" data-icon="open_in_new">open_in_new</span>
-            </Link>
-          </div>
-          <Link to="/project/ghost-zine" className="order-1 md:order-2 h-64 md:h-auto border-b-[3px] md:border-b-0 md:border-l-[3px] border-black overflow-hidden relative group block">
-            <img 
-              alt="Ghost Zine" 
-              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 absolute inset-0" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR-mCK-67ymH1Pm4PhvCdDxK748VHLQyuHm2s17CTEh7JolZp7bkebWXVucmid6DVWVcin0P0cXsgDJGjE8Qb1hMwDlhlZjy15B_qv1L1L80TzZfKyOXyxwbo3Jh_pJ3byMypvOH0iD_RB-UQbR92bmI156Py2QrqEsfV-3awqrKr0xxxNYOnAIXTn3SElTddlY-Sm6LmULBEmPFfyuFBWkVAaoTnd-a2MMEncnVsLcO_b_sVUXkQHdWgbl8afCvBCcpvtshBQk0bF"
-            />
-          </Link>
+          ))}
         </div>
       </div>
     </section>
   );
 };
+

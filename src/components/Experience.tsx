@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const Experience: React.FC = () => {
   return (
@@ -24,12 +25,17 @@ export const Experience: React.FC = () => {
 
         {/* Internship */}
         <div className="bg-tertiary-container text-white border-[3px] border-black p-6 md:p-8 hard-shadow flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:-translate-y-1 transition-transform">
-          <div>
-            <div className="inline-block bg-white text-black border-2 border-black px-3 py-1 mb-4 font-label-bold uppercase text-xs">
-              Internship
+          <div className="space-y-4">
+            <div>
+              <div className="inline-block bg-white text-black border-2 border-black px-3 py-1 mb-2 font-label-bold uppercase text-xs">
+                Internship
+              </div>
+              <h3 className="font-headline-md text-2xl uppercase mb-1">Web Developer Intern</h3>
+              <p className="font-body-lg text-lg font-bold">CV Sinar Teknologi Indonesia</p>
             </div>
-            <h3 className="font-headline-md text-2xl uppercase mb-1">Web Developer Intern</h3>
-            <p className="font-body-lg text-lg font-bold">CV Sinar Teknologi Indonesia</p>
+            <Link to="/project/kitagiat" className="inline-flex items-center gap-2 bg-white text-black border-2 border-black px-4 py-1 font-label-bold uppercase text-xs hard-shadow-sm hover:bg-primary-container transition-colors active:translate-x-0.5 active:translate-y-0.5 active:shadow-none">
+              View Project <span className="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
+            </Link>
           </div>
           <div className="bg-white text-black border-2 border-black px-4 py-2 font-label-bold uppercase text-sm whitespace-nowrap hard-shadow">
             Aug 2025 - Jan 2026
