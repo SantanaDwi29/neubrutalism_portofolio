@@ -22,15 +22,11 @@ export const Experience: React.FC = () => {
             <ul className="space-y-2 list-none p-0">
               <li className="flex items-start gap-2 font-body-md text-sm">
                 <span className="material-symbols-outlined text-sm mt-1" data-icon="check_circle">check_circle</span>
-                <span>Leading the development of **Apotek Sadddasa**, a comprehensive pharmacy management system.</span>
+                <span>Continuing the development and maintenance of enterprise-level web applications.</span>
               </li>
               <li className="flex items-start gap-2 font-body-md text-sm">
                 <span className="material-symbols-outlined text-sm mt-1" data-icon="check_circle">check_circle</span>
-                <span>Building **Saru Studio**, a project management platform designed for an external client to streamline collaboration.</span>
-              </li>
-              <li className="flex items-start gap-2 font-body-md text-sm">
-                <span className="material-symbols-outlined text-sm mt-1" data-icon="check_circle">check_circle</span>
-                <span>Optimizing system performance and ensuring security best practices for enterprise-level applications.</span>
+                <span>Optimizing system performance and ensuring security best practices.</span>
               </li>
             </ul>
           </div>
