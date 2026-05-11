@@ -1,10 +1,36 @@
 # Neubrutalism Portfolio
 
-<div align="center">
-  <img src="./screen.png" alt="Neubrutalism Portfolio Preview" width="100%" />
-</div>
-
 A modern, responsive web portfolio built with React, TypeScript, and Tailwind CSS, featuring a distinctive **neubrutalism** design aesthetic. This project showcases bold colors, stark contrasts, thick borders, and solid shadows typical of the neubrutalist UI style.
+
+## 📸 Interface Tour
+
+### 1. Hero Section
+![Hero Section](./public/screenshot_hero.png)
+The Hero section provides a strong first impression with a dynamic, auto-typing role text and a distinctive neubrutalist layout. It clearly states availability for work and offers quick access to the resume and project portfolio.
+
+### 2. Tech Stack
+![Tech Stack](./public/screenshot_stack.png)
+A visually engaging section that showcases the core technologies and tools I specialize in, such as React, Laravel, and Tailwind CSS. The thick borders and bold colors reinforce the brutalist design language.
+
+### 3. Experience
+![Experience](./public/screenshot_experience.png)
+This section details my professional journey, highlighting key roles, companies, and timelines. The card-based layout ensures readability while maintaining the high-contrast design.
+
+### 4. Certifications
+![Certifications](./public/screenshot_certifications.png)
+Displays official recognitions and achievements. The grid layout is optimized to make each certification stand out using solid hard shadows.
+
+### 5. Projects
+![Projects](./public/screenshot_projects.png)
+The portfolio gallery where case studies and past work are presented. Each project card is interactive and designed to encourage users to click and learn more about the specific implementation.
+
+### 6. Project Detail Page
+![Project Detail](./public/screenshot_project_detail.png)
+When clicking on a project, users are routed to a dedicated detail page. This page breaks down the project's background, technologies used, challenges overcome, and provides direct links to the live demo or source code.
+
+### 7. Contact
+![Contact](./public/screenshot_contact.png)
+A straightforward and bold contact area that provides clear calls to action, encouraging visitors to reach out via email or connect on professional networks like LinkedIn and GitHub.
 
 ## 🌟 Features
 
