@@ -53,6 +53,28 @@ export const Certifications: React.FC = () => {
           </div>
         </div>
         
+        {/* AWS */}
+        <div className="bg-gradient-to-br from-[#ff9900] to-[#232f3e] text-white border-[3px] border-black hard-shadow flex flex-col group overflow-hidden hover:-translate-y-2 transition-transform duration-300">
+          <div className="h-48 border-b-[3px] border-black overflow-hidden relative bg-white">
+            <img 
+              src="/certification/aws.png" 
+              alt="AWS Certificate" 
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div className="p-6 flex-1 flex flex-col">
+            <div className="flex justify-between items-start mb-4">
+              <span className="bg-white text-black border-2 border-black px-2 py-1 text-xs font-label-bold uppercase">Cloud</span>
+              <span className="material-symbols-outlined text-2xl" data-icon="dns">dns</span>
+            </div>
+            <h3 className="font-headline-md text-xl uppercase mb-2">AWS Certification</h3>
+            <p className="font-body-md text-sm mb-6 flex-1">Studying AWS cloud configuration, including S3 storage, networking fundamentals, and related cloud services.</p>
+            <a href="/certification/aws.pdf" target="_blank" rel="noreferrer" className="w-full bg-black text-white text-center py-2 font-label-bold uppercase neubrutalist-btn flex items-center justify-center gap-2">
+              View Certificate <span className="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
+            </a>
+          </div>
+        </div>
+
         {/* MongoDB */}
         <div className="bg-tertiary-container text-white border-[3px] border-black hard-shadow flex flex-col group overflow-hidden hover:-translate-y-2 transition-transform duration-300">
           <div className="h-48 border-b-[3px] border-black overflow-hidden relative bg-white">
@@ -70,30 +92,6 @@ export const Certifications: React.FC = () => {
             <h3 className="font-headline-md text-xl uppercase mb-2">MongoDB Certified</h3>
             <p className="font-body-md text-sm mb-6 flex-1">Demonstrated proficiency in NoSQL database design, aggregation frameworks, and MongoDB deployment.</p>
             <a href="/certification/mongodb.pdf" target="_blank" rel="noreferrer" className="w-full bg-black text-white text-center py-2 font-label-bold uppercase neubrutalist-btn flex items-center justify-center gap-2">
-              View Certificate <span className="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
-            </a>
-          </div>
-        </div>
-
-        {/* AWS */}
-        <div className="bg-gradient-to-br from-[#ff9900] to-[#232f3e] text-white border-[3px] border-black hard-shadow flex flex-col group overflow-hidden hover:-translate-y-2 transition-transform duration-300">
-          <div className="h-48 border-b-[3px] border-black overflow-hidden relative bg-white flex items-center justify-center">
-            <div className="w-full h-full flex flex-col items-center justify-center gap-3 text-center px-6 bg-[radial-gradient(circle_at_top,_rgba(255,153,0,0.2),_transparent_65%)]">
-              <span className="material-symbols-outlined text-6xl text-[#ff9900]" data-icon="cloud">cloud</span>
-              <div>
-                <p className="text-xs font-label-bold uppercase tracking-[0.3em] text-[#232f3e]">AWS</p>
-                <p className="text-sm font-body-md text-[#232f3e]">Cloud &amp; Networking</p>
-              </div>
-            </div>
-          </div>
-          <div className="p-6 flex-1 flex flex-col">
-            <div className="flex justify-between items-start mb-4">
-              <span className="bg-white text-black border-2 border-black px-2 py-1 text-xs font-label-bold uppercase">Cloud</span>
-              <span className="material-symbols-outlined text-2xl" data-icon="dns">dns</span>
-            </div>
-            <h3 className="font-headline-md text-xl uppercase mb-2">AWS Certification</h3>
-            <p className="font-body-md text-sm mb-6 flex-1">Studying AWS cloud configuration, including S3 storage, networking fundamentals, and related cloud services.</p>
-            <a href="/certification/aws.pdf" target="_blank" rel="noreferrer" className="w-full bg-black text-white text-center py-2 font-label-bold uppercase neubrutalist-btn flex items-center justify-center gap-2">
               View Certificate <span className="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
             </a>
           </div>
