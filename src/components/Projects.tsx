@@ -46,6 +46,7 @@ export const Projects = () => {
               <Link to={`/project/${project.id}`} className="h-64 md:h-[380px] border-b-[3px] md:border-b-0 md:border-r-[3px] border-black overflow-hidden relative block bg-surface-dim">
                 <img 
                   alt={project.title} 
+                  loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100" 
                   src={project.images[0]}
                 />
@@ -100,6 +101,7 @@ export const Projects = () => {
               <Link to={`/project/${project.id}`} className="h-48 border-b-[3px] border-black overflow-hidden block">
                 <img 
                   alt={project.title} 
+                  loading="lazy"
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" 
                   src={project.images[0]}
                 />

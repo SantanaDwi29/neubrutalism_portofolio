@@ -17,6 +17,7 @@ export const Certifications: React.FC = () => {
             <img 
               src="/certification/Sertifikat_Magang.webp" 
               alt="Internship Certificate" 
+              loading="lazy"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
           </div>
@@ -39,6 +40,7 @@ export const Certifications: React.FC = () => {
             <img 
               src="/certification/dicoding_AI_Praktis_untuk_Produktivitas.webp" 
               alt="Dicoding AI Praktis Certificate" 
+              loading="lazy"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
           </div>
@@ -61,6 +63,7 @@ export const Certifications: React.FC = () => {
             <img 
               src="/certification/dicoding_Belajar_Penggunaan_Generative_AI.webp" 
               alt="Dicoding Generative AI Certificate" 
+              loading="lazy"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
           </div>
@@ -85,6 +88,7 @@ export const Certifications: React.FC = () => {
                 <img 
                   src="/certification/Sertifikat_JWD.webp" 
                   alt="Junior Web Dev Certificate" 
+                  loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -107,6 +111,7 @@ export const Certifications: React.FC = () => {
                 <img 
                   src="/certification/aws.webp" 
                   alt="AWS Certificate" 
+                  loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -129,6 +134,7 @@ export const Certifications: React.FC = () => {
                 <img 
                   src="/certification/mongodb.webp" 
                   alt="MongoDB Certificate" 
+                  loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
