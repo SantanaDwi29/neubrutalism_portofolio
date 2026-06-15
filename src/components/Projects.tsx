@@ -49,7 +49,7 @@ export const Projects = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100" 
                   src={project.images[0]}
                 />
-                <div className="absolute top-4 left-4 bg-tertiary-container border-2 border-black px-3 py-1 text-[10px] font-label-bold uppercase -rotate-2 hard-shadow-sm">
+                <div className="absolute top-4 left-4 bg-[#FACC15] text-black border-2 border-black px-3 py-1 text-[10px] font-label-bold uppercase -rotate-2 hard-shadow-sm">
                   Featured Project
                 </div>
               </Link>

@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { DecorativeElements } from './DecorativeElements';
 
 export const Certifications: React.FC = () => {
+  const [showAll, setShowAll] = useState(false);
+
   return (
     <section id="certifications" className="relative space-y-12">
       <DecorativeElements mode="shapes" opacity="opacity-30" />
@@ -13,7 +15,7 @@ export const Certifications: React.FC = () => {
         <div className="bg-secondary-container text-white border-[3px] border-black hard-shadow flex flex-col group overflow-hidden hover:-translate-y-2 transition-transform duration-300">
           <div className="h-48 border-b-[3px] border-black overflow-hidden relative bg-white">
             <img 
-              src="/certification/Sertifikat_Magang.png" 
+              src="/certification/Sertifikat_Magang.webp" 
               alt="Internship Certificate" 
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
@@ -25,82 +27,17 @@ export const Certifications: React.FC = () => {
             </div>
             <h3 className="font-headline-md text-xl uppercase mb-2">Internship Program</h3>
             <p className="font-body-md text-sm mb-6 flex-1">Successfully completed professional internship with hands-on industry experience and collaborative projects.</p>
-            <a href="/certification/Sertifikat_Magang.png" target="_blank" rel="noreferrer" className="w-full bg-black text-white text-center py-2 font-label-bold uppercase neubrutalist-btn flex items-center justify-center gap-2">
+            <a href="/certification/Sertifikat_Magang.webp" target="_blank" rel="noreferrer" className="w-full bg-black text-white text-center py-2 font-label-bold uppercase neubrutalist-btn flex items-center justify-center gap-2">
               View Certificate <span className="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
             </a>
           </div>
         </div>
         
-        {/* Junior Web Dev */}
-        <div className="bg-primary-container border-[3px] border-black hard-shadow flex flex-col group overflow-hidden hover:-translate-y-2 transition-transform duration-300">
-          <div className="h-48 border-b-[3px] border-black overflow-hidden relative bg-white">
-            <img 
-              src="/certification/Sertifikat_JWD.png" 
-              alt="Junior Web Dev Certificate" 
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div className="p-6 flex-1 flex flex-col">
-            <div className="flex justify-between items-start mb-4">
-              <span className="bg-white text-black border-2 border-black px-2 py-1 text-xs font-label-bold uppercase">Development</span>
-              <span className="material-symbols-outlined text-2xl" data-icon="laptop_mac">laptop_mac</span>
-            </div>
-            <h3 className="font-headline-md text-xl uppercase mb-2">Junior Web Dev</h3>
-            <p className="font-body-md text-sm mb-6 flex-1">Certified in modern web development fundamentals, responsive design, and frontend implementation.</p>
-            <a href="/certification/Sertifikat_JWD.pdf" target="_blank" rel="noreferrer" className="w-full bg-black text-white text-center py-2 font-label-bold uppercase neubrutalist-btn flex items-center justify-center gap-2">
-              View Certificate <span className="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
-            </a>
-          </div>
-        </div>
-        
-        {/* AWS */}
-        <div className="bg-gradient-to-br from-[#ff9900] to-[#232f3e] text-white border-[3px] border-black hard-shadow flex flex-col group overflow-hidden hover:-translate-y-2 transition-transform duration-300">
-          <div className="h-48 border-b-[3px] border-black overflow-hidden relative bg-white">
-            <img 
-              src="/certification/aws.png" 
-              alt="AWS Certificate" 
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div className="p-6 flex-1 flex flex-col">
-            <div className="flex justify-between items-start mb-4">
-              <span className="bg-white text-black border-2 border-black px-2 py-1 text-xs font-label-bold uppercase">Cloud</span>
-              <span className="material-symbols-outlined text-2xl" data-icon="dns">dns</span>
-            </div>
-            <h3 className="font-headline-md text-xl uppercase mb-2">AWS Certification</h3>
-            <p className="font-body-md text-sm mb-6 flex-1">Studying AWS cloud configuration, including S3 storage, networking fundamentals, and related cloud services.</p>
-            <a href="/certification/aws.pdf" target="_blank" rel="noreferrer" className="w-full bg-black text-white text-center py-2 font-label-bold uppercase neubrutalist-btn flex items-center justify-center gap-2">
-              View Certificate <span className="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
-            </a>
-          </div>
-        </div>
-
-        {/* MongoDB */}
-        <div className="bg-tertiary-container text-white border-[3px] border-black hard-shadow flex flex-col group overflow-hidden hover:-translate-y-2 transition-transform duration-300">
-          <div className="h-48 border-b-[3px] border-black overflow-hidden relative bg-white">
-            <img 
-              src="/certification/mongodb.png" 
-              alt="MongoDB Certificate" 
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div className="p-6 flex-1 flex flex-col">
-            <div className="flex justify-between items-start mb-4">
-              <span className="bg-white text-black border-2 border-black px-2 py-1 text-xs font-label-bold uppercase">Database</span>
-              <span className="material-symbols-outlined text-2xl" data-icon="database">database</span>
-            </div>
-            <h3 className="font-headline-md text-xl uppercase mb-2">MongoDB Certified</h3>
-            <p className="font-body-md text-sm mb-6 flex-1">Demonstrated proficiency in NoSQL database design, aggregation frameworks, and MongoDB deployment.</p>
-            <a href="/certification/mongodb.pdf" target="_blank" rel="noreferrer" className="w-full bg-black text-white text-center py-2 font-label-bold uppercase neubrutalist-btn flex items-center justify-center gap-2">
-              View Certificate <span className="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
-            </a>
-          </div>
-        </div>
         {/* Dicoding AI Praktis */}
         <div className="bg-[#4F46E5] text-white border-[3px] border-black hard-shadow flex flex-col group overflow-hidden hover:-translate-y-2 transition-transform duration-300">
           <div className="h-48 border-b-[3px] border-black overflow-hidden relative bg-white">
             <img 
-              src="/certification/dicoding_AI_Praktis_untuk_Produktivitas.png" 
+              src="/certification/dicoding_AI_Praktis_untuk_Produktivitas.webp" 
               alt="Dicoding AI Praktis Certificate" 
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
@@ -119,10 +56,10 @@ export const Certifications: React.FC = () => {
         </div>
 
         {/* Dicoding Generative AI */}
-        <div className="bg-[#EC4899] text-white border-[3px] border-black hard-shadow flex flex-col group overflow-hidden hover:-translate-y-2 transition-transform duration-300">
+        <div className="bg-[#9D174D] text-white border-[3px] border-black hard-shadow flex flex-col group overflow-hidden hover:-translate-y-2 transition-transform duration-300">
           <div className="h-48 border-b-[3px] border-black overflow-hidden relative bg-white">
             <img 
-              src="/certification/dicoding_Belajar_Penggunaan_Generative_AI.png" 
+              src="/certification/dicoding_Belajar_Penggunaan_Generative_AI.webp" 
               alt="Dicoding Generative AI Certificate" 
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
@@ -139,7 +76,88 @@ export const Certifications: React.FC = () => {
             </a>
           </div>
         </div>
+        
+        {showAll && (
+          <>
+            {/* Junior Web Dev */}
+            <div className="bg-primary-container border-[3px] border-black hard-shadow flex flex-col group overflow-hidden hover:-translate-y-2 transition-transform duration-300">
+              <div className="h-48 border-b-[3px] border-black overflow-hidden relative bg-white">
+                <img 
+                  src="/certification/Sertifikat_JWD.webp" 
+                  alt="Junior Web Dev Certificate" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-6 flex-1 flex flex-col">
+                <div className="flex justify-between items-start mb-4">
+                  <span className="bg-white text-black border-2 border-black px-2 py-1 text-xs font-label-bold uppercase">Development</span>
+                  <span className="material-symbols-outlined text-2xl" data-icon="laptop_mac">laptop_mac</span>
+                </div>
+                <h3 className="font-headline-md text-xl uppercase mb-2">Junior Web Dev</h3>
+                <p className="font-body-md text-sm mb-6 flex-1">Certified in modern web development fundamentals, responsive design, and frontend implementation.</p>
+                <a href="/certification/Sertifikat_JWD.pdf" target="_blank" rel="noreferrer" className="w-full bg-black text-white text-center py-2 font-label-bold uppercase neubrutalist-btn flex items-center justify-center gap-2">
+                  View Certificate <span className="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
+                </a>
+              </div>
+            </div>
+            
+            {/* AWS */}
+            <div className="bg-gradient-to-br from-[#ff9900] to-[#232f3e] text-white border-[3px] border-black hard-shadow flex flex-col group overflow-hidden hover:-translate-y-2 transition-transform duration-300">
+              <div className="h-48 border-b-[3px] border-black overflow-hidden relative bg-white">
+                <img 
+                  src="/certification/aws.webp" 
+                  alt="AWS Certificate" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-6 flex-1 flex flex-col">
+                <div className="flex justify-between items-start mb-4">
+                  <span className="bg-white text-black border-2 border-black px-2 py-1 text-xs font-label-bold uppercase">Cloud</span>
+                  <span className="material-symbols-outlined text-2xl" data-icon="dns">dns</span>
+                </div>
+                <h3 className="font-headline-md text-xl uppercase mb-2">AWS Certification</h3>
+                <p className="font-body-md text-sm mb-6 flex-1">Studying AWS cloud configuration, including S3 storage, networking fundamentals, and related cloud services.</p>
+                <a href="/certification/aws.pdf" target="_blank" rel="noreferrer" className="w-full bg-black text-white text-center py-2 font-label-bold uppercase neubrutalist-btn flex items-center justify-center gap-2">
+                  View Certificate <span className="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
+                </a>
+              </div>
+            </div>
+
+            {/* MongoDB */}
+            <div className="bg-tertiary-container text-white border-[3px] border-black hard-shadow flex flex-col group overflow-hidden hover:-translate-y-2 transition-transform duration-300">
+              <div className="h-48 border-b-[3px] border-black overflow-hidden relative bg-white">
+                <img 
+                  src="/certification/mongodb.webp" 
+                  alt="MongoDB Certificate" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-6 flex-1 flex flex-col">
+                <div className="flex justify-between items-start mb-4">
+                  <span className="bg-white text-black border-2 border-black px-2 py-1 text-xs font-label-bold uppercase">Database</span>
+                  <span className="material-symbols-outlined text-2xl" data-icon="database">database</span>
+                </div>
+                <h3 className="font-headline-md text-xl uppercase mb-2">MongoDB Certified</h3>
+                <p className="font-body-md text-sm mb-6 flex-1">Demonstrated proficiency in NoSQL database design, aggregation frameworks, and MongoDB deployment.</p>
+                <a href="/certification/mongodb.pdf" target="_blank" rel="noreferrer" className="w-full bg-black text-white text-center py-2 font-label-bold uppercase neubrutalist-btn flex items-center justify-center gap-2">
+                  View Certificate <span className="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
+                </a>
+              </div>
+            </div>
+          </>
+        )}
       </div>
+
+      {!showAll && (
+        <div className="flex justify-center mt-12">
+          <button 
+            onClick={() => setShowAll(true)}
+            className="bg-black text-white px-8 py-3 font-label-bold uppercase text-lg neubrutalist-btn flex items-center gap-2"
+          >
+            View All <span className="material-symbols-outlined" data-icon="expand_more">expand_more</span>
+          </button>
+        </div>
+      )}
     </section>
   );
 };
