@@ -41,14 +41,14 @@ export const Hero: React.FC = () => {
   return (
     <div className="relative">
       <DecorativeElements />
-      <section className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center animate-fade-in-up">
+      <section className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
         <div className="md:col-span-8 space-y-8 md:-rotate-1">
           <div className="inline-block bg-tertiary-container border-2 border-black px-4 py-1 hard-shadow text-on-tertiary-container font-label-bold uppercase">
             Available for Work 2026
           </div>
           <h1 className="font-headline-xl text-[48px] leading-tight sm:text-[64px] md:text-headline-xl uppercase min-h-[144px] sm:min-h-[192px]">
             Hi, <br className="hidden sm:block" />I'm  Santa <br className="hidden sm:block" />
-            <span className="relative inline-flex items-center min-h-[1.2em]">
+            <span className="relative inline-flex items-center min-h-[1.2em] min-w-[250px] sm:min-w-[350px]">
               <span className="bg-primary-container px-2">{currentText}</span>
               <span className="inline-block w-4 sm:w-6 h-[36px] sm:h-[48px] md:h-[60px] bg-black animate-pulse ml-2"></span>
               <svg className="absolute -bottom-2 left-0 w-full h-2 opacity-70" viewBox="0 0 100 20" preserveAspectRatio="none">

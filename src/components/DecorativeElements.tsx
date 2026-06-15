@@ -22,7 +22,7 @@ export const DecorativeElements: React.FC<DecorativeElementsProps> = ({ mode = '
 
       {/* Wavy Line SVG */}
       {(mode === 'hero' || mode === 'mixed' || mode === 'shapes') && (
-        <div className="absolute top-[30%] left-0 w-[200%] h-32 opacity-30 overflow-hidden">
+        <div className="absolute top-64 left-0 w-[200%] h-32 opacity-30 overflow-hidden">
           <div className="animate-wave-scroll flex">
             <svg viewBox="0 0 1000 100" preserveAspectRatio="none" className="w-[1000px] h-32 fill-black">
               <path d="M0,50 C150,0 350,100 500,50 C650,0 850,100 1000,50 L1000,100 L0,100 Z"></path>
