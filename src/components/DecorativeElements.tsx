@@ -1,15 +1,22 @@
-import React from 'react';
-
+import React, { useState } from 'react';
 interface DecorativeElementsProps {
   mode?: 'hero' | 'dots' | 'shapes' | 'mixed';
   opacity?: string;
 }
 
 export const DecorativeElements: React.FC<DecorativeElementsProps> = ({ mode = 'mixed', opacity = 'opacity-30' }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   return (
     <div className={`absolute inset-0 overflow-hidden pointer-events-none -z-10 select-none ${opacity}`}>
       {/* Liquid Blobs - vary by mode */}
-      {(mode === 'hero' || mode === 'mixed') && (
+      {(!isMobile && (mode === 'hero' || mode === 'mixed')) && (
         <>
           <div className="absolute top-[5%] left-[60%] w-80 h-80 bg-primary-container border-[4px] border-black animate-blob-liquid opacity-60 flex items-center justify-center">
             <svg viewBox="0 0 100 100" className="w-1/2 h-1/2 opacity-40">
@@ -21,7 +28,7 @@ export const DecorativeElements: React.FC<DecorativeElementsProps> = ({ mode = '
       )}
 
       {/* Wavy Line SVG */}
-      {(mode === 'hero' || mode === 'mixed' || mode === 'shapes') && (
+      {(!isMobile && (mode === 'hero' || mode === 'mixed' || mode === 'shapes')) && (
         <div className="absolute top-64 left-0 w-[200%] h-32 opacity-30 overflow-hidden">
           <div className="animate-wave-scroll flex">
             <svg viewBox="0 0 1000 100" preserveAspectRatio="none" className="w-[1000px] h-32 fill-black">
@@ -35,7 +42,7 @@ export const DecorativeElements: React.FC<DecorativeElementsProps> = ({ mode = '
       )}
 
       {/* Rectangles and Triangles */}
-      {(mode === 'shapes' || mode === 'mixed' || mode === 'hero') && (
+      {(!isMobile && (mode === 'shapes' || mode === 'mixed' || mode === 'hero')) && (
         <>
           <div className="absolute top-[15%] left-[10%] w-20 h-20 bg-primary border-[4px] border-black hard-shadow animate-float-slow opacity-90"></div>
           <div className="absolute top-[65%] right-[15%] w-28 h-14 bg-primary-container border-[4px] border-black hard-shadow animate-float-fast rotate-12 opacity-90"></div>
@@ -49,7 +56,7 @@ export const DecorativeElements: React.FC<DecorativeElementsProps> = ({ mode = '
       )}
       
       {/* Circles/Dots */}
-      {(mode === 'dots' || mode === 'mixed' || mode === 'hero') && (
+      {(!isMobile && (mode === 'dots' || mode === 'mixed' || mode === 'hero')) && (
         <>
           <div className="absolute top-[40%] left-[5%] w-10 h-10 bg-black rounded-full animate-pulse opacity-20"></div>
           <div className="absolute bottom-[45%] right-[10%] w-12 h-12 bg-primary border-[4px] border-black rounded-full animate-bounce opacity-90"></div>
