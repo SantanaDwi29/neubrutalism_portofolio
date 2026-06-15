@@ -8,10 +8,13 @@ export const DecorativeElements: React.FC<DecorativeElementsProps> = ({ mode = '
   const [isMobile, setIsMobile] = useState(false);
 
   React.useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    const mediaQuery = window.matchMedia('(max-width: 767px)');
+    const checkMobile = (e: MediaQueryListEvent | MediaQueryList) => setIsMobile(e.matches);
+    checkMobile(mediaQuery);
+    
+    // Use modern addEventListener for MediaQueryList
+    mediaQuery.addEventListener('change', checkMobile);
+    return () => mediaQuery.removeEventListener('change', checkMobile);
   }, []);
   return (
     <div className={`absolute inset-0 overflow-hidden pointer-events-none -z-10 select-none ${opacity}`}>
