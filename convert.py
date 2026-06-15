@@ -7,5 +7,5 @@ def pdf_to_png(pdf_path, png_path):
     pix.save(png_path)
     print(f"Saved {png_path}")
 
-pdf_to_png("public/certification/Sertifikat_JWD.pdf", "public/certification/Sertifikat_JWD.png")
-pdf_to_png("public/certification/mongodb.pdf", "public/certification/mongodb.png")
+pdf_to_png("public/certification/dicoding_AI_Praktis_untuk_Produktivitas.pdf", "public/certification/dicoding_AI_Praktis_untuk_Produktivitas.png")
+pdf_to_png("public/certification/dicoding_Belajar_Penggunaan_Generative_AI.pdf", "public/certification/dicoding_Belajar_Penggunaan_Generative_AI.png")
