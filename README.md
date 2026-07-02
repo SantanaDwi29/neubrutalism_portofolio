@@ -1,4 +1,4 @@
-# Neubrutalism Portfolio
+# Neubrutalism Portfolio 
  
 A modern, responsive web portfolio built with React, TypeScript, and Tailwind CSS, featuring a distinctive **neubrutalism** design aesthetic. This project showcases bold colors, stark contrasts, thick borders, and solid shadows typical of the neubrutalist UI style.
 
