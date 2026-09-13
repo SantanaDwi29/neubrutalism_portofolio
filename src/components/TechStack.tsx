@@ -12,7 +12,7 @@ const groups = [
     icon: Code2,
     heading: 'The part people touch.',
     description: 'Responsive interfaces, reusable components, and interactions that make complex workflows feel straightforward.',
-    skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Vite', 'HTML5/CSS3'],
+    skills: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Vite', 'HTML5/CSS3'],
     project: 'saru-studio',
     example: 'Saru Studio'
   },
