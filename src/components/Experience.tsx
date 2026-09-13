@@ -1,56 +1,71 @@
 import React from 'react';
-import { DecorativeElements } from './DecorativeElements';
+import { ArrowUpRight, Briefcase, Plus } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { TechIcon } from './TechIcon';
 
-export const Experience: React.FC = () => {
-  return (
-    <section id="experience" className="relative space-y-12">
-      <DecorativeElements mode="shapes" opacity="opacity-30" />
-      <h2 className="font-headline-lg text-3xl md:text-headline-lg uppercase flex items-center gap-4 flex-wrap">
-        <span className="material-symbols-outlined text-3xl md:text-4xl" data-icon="work_history">work_history</span> Experience
-      </h2>
+const experienceEntries = [
+  {
+    chapter: 'CHAPTER 02',
+    year: '2026 - PRESENT',
+    role: 'Web Developer',
+    company: 'CV Sinar Teknologi Indonesia',
+    location: 'Full-time / Bali',
+    description:
+      'Continuing full-stack development and maintenance of enterprise web applications and SaaS modules. Focused on system architecture, RBAC access control, performance optimization, and API integrations.',
+    tech: ['Laravel', 'React', 'TypeScript', 'MySQL', 'Tailwind CSS'],
+  },
+  {
+    chapter: 'CHAPTER 01',
+    year: '2025 - 2026',
+    role: 'Web Developer Intern',
+    company: 'CV Sinar Teknologi Indonesia',
+    location: 'Internship / Bali',
+    description:
+      'Engineered core modules for the Kitagiat SaaS ecosystem, including the Kitagiat Attendance SaaS and Kitagiat Admin Portal. Built QR scanner integrations, WhatsApp notification bots, and automated PDF/Excel reporting engines.',
+    tech: ['Laravel', 'React', 'TypeScript', 'PHP Excel', 'WhatsApp API'],
+  },
+];
 
-      <div className="space-y-6">
-        {/* Full Time */}
-        <div className="bg-primary-container border-[3px] border-black p-6 md:p-8 hard-shadow flex flex-col md:flex-row justify-between items-start gap-4 hover:-translate-y-1 transition-transform">
-          <div className="flex-1">
-            <div className="inline-block bg-white border-2 border-black px-3 py-1 mb-4 font-label-bold uppercase text-xs">
-              Freelancer
-            </div>
-            <h3 className="font-headline-md text-2xl uppercase mb-1">Web Developer</h3>
-            <p className="font-body-lg text-lg font-bold mb-4">CV Sinar Teknologi Indonesia</p>
-
-            <ul className="space-y-2 list-none p-0">
-              <li className="flex items-start gap-2 font-body-md text-sm">
-                <span className="material-symbols-outlined text-sm mt-1" data-icon="check_circle">check_circle</span>
-                <span>Continuing the development and maintenance of enterprise-level web applications.</span>
-              </li>
-              <li className="flex items-start gap-2 font-body-md text-sm">
-                <span className="material-symbols-outlined text-sm mt-1" data-icon="check_circle">check_circle</span>
-                <span>Optimizing system performance and ensuring security best practices.</span>
-              </li>
-            </ul>
+export const Experience: React.FC = () => (
+  <section id="experience" className="section-wrap">
+    <div className="section-heading">
+      <span className="manga-eyebrow text-rose-600 flex items-center gap-2">
+        <Briefcase size={16} /> 職歴と経験 — Professional Journey & Experience
+      </span>
+      <h2>Learning by building.</h2>
+      <p>From my first internship to the systems I work on today.</p>
+    </div>
+    <div className="journey-list">
+      {experienceEntries.map((entry, index) => (
+        <article key={entry.chapter} className="journey-entry">
+          <div className="journey-date">
+            <span>{entry.year}</span>
+            <span>{entry.location}</span>
           </div>
-          <div className="bg-white border-2 border-black px-4 py-2 font-label-bold uppercase text-sm whitespace-nowrap hard-shadow">
-            Feb 2026 - Present
-          </div>
-        </div>
-
-        {/* Internship */}
-        <div className="bg-tertiary-container text-white border-[3px] border-black p-6 md:p-8 hard-shadow flex flex-col md:flex-row justify-between items-start gap-4 hover:-translate-y-1 transition-transform">
-          <div className="space-y-4 flex-1">
-            <div>
-              <div className="inline-block bg-white text-black border-2 border-black px-3 py-1 mb-2 font-label-bold uppercase text-xs">
-                Internship
+          <div className="anime-card journey-card">
+            <h3>{entry.role}</h3>
+            <p className="journey-company">{entry.company}</p>
+            <details open={index === 0}>
+              <summary>What I worked on <Plus size={18} /></summary>
+              <div className="journey-details">
+                <p>{entry.description}</p>
+                <div className="skill-tags">
+                  {entry.tech.map(tech => (
+                    <span key={tech} className="tech-badge-item">
+                      <TechIcon name={tech} size={15} />
+                    </span>
+                  ))}
+                </div>
+                <Link to={index === 0 ? '/project/apotek-saddasa' : '/project/kitagiat'} className="text-link">
+                  View project <ArrowUpRight size={17} />
+                </Link>
               </div>
-              <h3 className="font-headline-md text-2xl uppercase mb-1">Web Developer Intern</h3>
-              <p className="font-body-lg text-lg font-bold">CV Sinar Teknologi Indonesia</p>
-            </div>
+            </details>
           </div>
-          <div className="bg-white text-black border-2 border-black px-4 py-2 font-label-bold uppercase text-sm whitespace-nowrap hard-shadow">
-            Aug 2025 - Jan 2026
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
+        </article>
+      ))}
+    </div>
+  </section>
+);
+
+export default Experience;
