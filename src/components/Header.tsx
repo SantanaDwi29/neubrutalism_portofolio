@@ -1,70 +1,114 @@
+import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Code2, Menu, Moon, Sun, X } from 'lucide-react';
 
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+const menuItems = [
+  { label: 'HOME', href: '#home' },
+  { label: 'ABOUT', href: '#about' },
+  { label: 'STACK', href: '#stack' },
+  { label: 'JOURNEY', href: '#experience' },
+  { label: 'WORK', href: '#work' },
+  { label: 'CERTS', href: '#certs' },
+  { label: 'CONTACT', href: '#contact' },
+];
 
-export const Header: React.FC = () => {
+export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+  const [theme, setTheme] = useState<'light' | 'dark' | 'system'>(() => {
+    try {
+      const saved = localStorage.getItem('portfolio-theme');
+      return saved === 'light' || saved === 'dark' ? saved : 'system';
+    } catch { return 'system'; }
+  });
+  const [systemDark, setSystemDark] = useState(() => window.matchMedia('(prefers-color-scheme: dark)').matches);
+  const dark = theme === 'dark' || (theme === 'system' && systemDark);
 
-  const menuItems = [
-    { label: 'HOME', href: '/' },
-    { label: 'WORK', href: '/#work' },
-    { label: 'STACK', href: '/#stack' },
-    { label: 'EXPERIENCE', href: '/#experience' },
-    { label: 'CERTIFICATES', href: '/#certifications' },
-    { label: 'ABOUT', href: '/#about' },
-  ];
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-color-scheme: dark)');
+    const update = () => setSystemDark(media.matches);
+    media.addEventListener('change', update);
+    return () => media.removeEventListener('change', update);
+  }, []);
+
+  useEffect(() => {
+    if (theme === 'system') delete document.documentElement.dataset.theme;
+    else document.documentElement.dataset.theme = theme;
+    try {
+      if (theme === 'system') localStorage.removeItem('portfolio-theme');
+      else localStorage.setItem('portfolio-theme', theme);
+    } catch { /* The switch still works when local storage is unavailable. */ }
+  }, [theme]);
+
+  useEffect(() => {
+    if (!isHomePage) return;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) setActiveSection(entry.target.id);
+      });
+    }, { rootMargin: '-15% 0px -55% 0px' });
+    const observeSections = () => menuItems.forEach(({ href }) => {
+      const section = document.getElementById(href.slice(1));
+      if (section) observer.observe(section);
+    });
+    observeSections();
+    const mutationObserver = new MutationObserver(observeSections);
+    mutationObserver.observe(document.querySelector('main')!, { childList: true, subtree: true });
+    return () => { observer.disconnect(); mutationObserver.disconnect(); };
+  }, [isHomePage]);
+
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false);
+        document.getElementById('menu-toggle')?.focus();
+      }
+    };
+    document.addEventListener('keydown', closeOnEscape);
+    return () => document.removeEventListener('keydown', closeOnEscape);
+  }, [isMenuOpen]);
 
   return (
-    <header className="bg-white border-b-[3px] border-black sticky top-0 z-[100] shadow-[0px_4px_0px_0px_rgba(0,0,0,1)] flex justify-between items-center w-full px-4 md:px-6 py-3 md:py-4">
-      <Link to="/" className="flex items-center gap-2 cursor-crosshair active:scale-95 transition-all duration-75 no-underline">
-        <span className="material-symbols-outlined text-xl md:text-2xl" data-icon="terminal">terminal</span>
-        <span className="text-lg md:text-2xl font-black text-black font-['Space_Grotesk'] uppercase tracking-tighter">MY_PORTOFOLIO</span>
-      </Link>
-
-      {/* Desktop Nav */}
-      <nav className="hidden lg:flex items-center gap-6">
-        {menuItems.map((item) => (
-          <a
-            key={item.label}
-            className="font-['IBM_Plex_Mono'] text-sm font-bold uppercase text-black hover:translate-x-[2px] hover:translate-y-[2px] transition-all cursor-crosshair"
-            href={item.href}
-          >
-            {item.label}
-          </a>
-        ))}
-      </nav>
-
-      <div className="flex items-center gap-3">
-
-
-        {/* Mobile Menu Toggle */}
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="lg:hidden flex items-center justify-center w-10 h-10 border-[3px] border-black bg-white hard-shadow active:shadow-none active:translate-x-1 active:translate-y-1 transition-all"
-        >
-          <span className="material-symbols-outlined">
-            {isMenuOpen ? 'close' : 'menu'}
+    <header className="site-header">
+      <div className="section-wrap h-full flex items-center justify-between gap-4">
+        <Link to="/" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-3 font-extrabold tracking-tight text-ink">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-action text-action-ink">
+            <Code2 className="h-5 w-5" />
           </span>
-        </button>
-      </div>
-
-      {/* Mobile Menu Overlay */}
-      {isMenuOpen && (
-        <div className="absolute top-[100%] left-0 w-full bg-white border-b-[3px] border-black p-6 flex flex-col gap-4 lg:hidden animate-fade-in-up">
-          {menuItems.map((item) => (
-            <a
-              key={item.label}
-              onClick={() => setIsMenuOpen(false)}
-              className="font-['IBM_Plex_Mono'] text-lg font-bold uppercase text-black border-2 border-black p-3 hard-shadow bg-surface active:shadow-none active:translate-x-1 active:translate-y-1 transition-all"
-              href={item.href}
-            >
-              {item.label}
-            </a>
+          <span>SANTANA.DEV</span>
+        </Link>
+        <nav aria-label="Main navigation" className="hidden lg:flex items-center gap-1">
+          {menuItems.map(({ label, href }) => (
+            <a key={label} href={isHomePage ? href : `/${href}`}
+              aria-current={isHomePage && activeSection === href.slice(1) ? 'location' : undefined}
+              className="nav-link">{label}</a>
           ))}
-          <button className="sm:hidden bg-primary-container text-black border-[3px] border-black px-4 py-4 font-['IBM_Plex_Mono'] font-bold uppercase tracking-tight hard-shadow active:shadow-none active:translate-x-1 active:translate-y-1 mt-4">
-            CONTACT
-          </button>
+        </nav>
+        <div className="header-controls">
+        <button type="button" className="icon-button theme-toggle" aria-label={dark ? 'Switch to light theme' : 'Switch to dark theme'}
+          onClick={() => setTheme(dark ? 'light' : 'dark')}>
+          {dark ? <Sun size={19} /> : <Moon size={19} />}
+        </button>
+        <button id="menu-toggle" type="button" aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-controls="mobile-navigation" aria-expanded={isMenuOpen}
+          onClick={() => setIsMenuOpen((value) => !value)}
+          className="lg:hidden bg-surface text-ink border border-strong rounded-xl min-h-11 px-3 flex items-center gap-2 font-mono text-xs font-bold">
+          {isMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          {isMenuOpen ? 'CLOSE' : 'MENU'}
+        </button>
         </div>
+      </div>
+      {isMenuOpen && (
+        <nav id="mobile-navigation" aria-label="Mobile navigation" className="mobile-nav grid gap-2 lg:hidden">
+          {menuItems.map(({ label, href }) => (
+            <a key={label} href={isHomePage ? href : `/${href}`} className="nav-link"
+              aria-current={isHomePage && activeSection === href.slice(1) ? 'location' : undefined}
+              onClick={() => setIsMenuOpen(false)}>{label}</a>
+          ))}
+        </nav>
       )}
     </header>
   );
