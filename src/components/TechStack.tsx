@@ -3,6 +3,7 @@
 import { useState, useRef, type KeyboardEvent } from 'react';
 import { ArrowUpRight, Code2, Database, Server, Wrench, Terminal } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
 import { TechIcon } from './TechIcon';
 
 const groups = [
@@ -51,6 +52,7 @@ const groups = [
 export const TechStack = () => {
   const [active, setActive] = useState(0);
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
+  const reduceMotion = useReducedMotion();
 
   const onKeyDown = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
     let next: number;
@@ -64,10 +66,13 @@ export const TechStack = () => {
     tabs.current[next]?.focus();
   };
 
+  const currentGroup = groups[active];
+  const Icon = currentGroup.icon;
+
   return (
     <section id="stack" className="section-wrap">
       <div className="section-heading">
-        <span className="manga-eyebrow text-rose-600 flex items-center gap-2">
+        <span className="manga-eyebrow text-[var(--color-rose)] flex items-center gap-2 font-bold">
           <Terminal size={15} /> 開発スタック — Tech Stack & Toolkit
         </span>
         <h2>
@@ -94,61 +99,72 @@ export const TechStack = () => {
                 tabIndex={isSelected ? 0 : -1}
                 onKeyDown={(event) => onKeyDown(event, index)}
                 onClick={() => setActive(index)}
+                className="relative overflow-hidden group"
               >
                 <TabIcon size={21} />
                 <span className="flex flex-col text-left">
                   <span>{item.title}</span>
                   <span className="text-[10px] opacity-75 font-mono">{item.jpTitle}</span>
                 </span>
-                <ArrowUpRight size={18} />
+                <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </button>
             );
           })}
         </div>
 
-        {groups.map((group, index) => {
-          const Icon = group.icon;
-
-          return (
-            <div
-              key={group.title}
-              hidden={active !== index}
-              className="anime-card stack-panel"
+        <div className="relative min-h-[366px]">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active}
+              initial={reduceMotion ? false : { opacity: 0, x: 12 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={reduceMotion ? undefined : { opacity: 0, x: -12 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+              className="anime-card stack-panel h-full"
               role="tabpanel"
-              id={`stack-panel-${index}`}
-              aria-labelledby={`stack-tab-${index}`}
+              id={`stack-panel-${active}`}
+              aria-labelledby={`stack-tab-${active}`}
               tabIndex={0}
             >
               <div className="panel-content">
                 <div className="flex items-center justify-between mb-4">
                   <Icon className="stack-symbol text-[var(--color-burgundy)]" size={48} strokeWidth={1.5} aria-hidden="true" />
                   <span className="px-3 py-1 rounded-full bg-[var(--color-sand)] font-mono text-xs font-bold text-[var(--color-burgundy)]">
-                    {group.jpTitle}
+                    {currentGroup.jpTitle}
                   </span>
                 </div>
 
-                <h3>{group.heading}</h3>
-                <p>{group.description}</p>
+                <h3>{currentGroup.heading}</h3>
+                <p>{currentGroup.description}</p>
 
-                {/* Tech Badges with actual logos */}
+                {/* Tech Badges with actual logos and micro-hover scale */}
                 <div className="skill-tags mt-6">
-                  {group.skills.map((skill) => (
-                    <span key={skill} className="tech-badge-item">
+                  {currentGroup.skills.map((skill, i) => (
+                    <motion.span
+                      key={skill}
+                      className="tech-badge-item cursor-default"
+                      initial={reduceMotion ? false : { opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: i * 0.04, duration: 0.2 }}
+                      whileHover={reduceMotion ? undefined : { scale: 1.06, translateY: -2 }}
+                    >
                       <TechIcon name={skill} size={16} />
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
 
-                <Link to={`/project/${group.project}`} className="text-link mt-6">
-                  See it in {group.example} <ArrowUpRight size={18} />
+                <Link to={`/project/${currentGroup.project}`} className="text-link mt-6 group inline-flex items-center">
+                  See it in {currentGroup.example}{' '}
+                  <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </Link>
               </div>
-            </div>
-          );
-        })}
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
     </section>
   );
 };
 
 export default TechStack;
+

@@ -1,22 +1,36 @@
-﻿'use client';
+'use client';
 
-import { useEffect, useRef, type ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import { motion, useReducedMotion } from 'motion/react';
 
-/** Establish reading order without hiding content or fading the solid palette. */
-export const Reveal = ({ children, className = '' }: { children: ReactNode; className?: string }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const element = ref.current;
-    if (!element || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const observer = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) return;
-      element.animate([{ transform: 'translateY(24px)' }, { transform: 'translateY(0)' }], {
-        duration: 600, easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
-      });
-      observer.disconnect();
-    }, { threshold: 0.08 });
-    observer.observe(element);
-    return () => { observer.disconnect(); element.getAnimations().forEach(animation => animation.cancel()); };
-  }, []);
-  return <div ref={ref} className={className}>{children}</div>;
+interface RevealProps {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+}
+
+/** Smooth, non-disruptive scroll reveal using Motion with spring physics and reduced motion support. */
+export const Reveal = ({ children, className = '', delay = 0 }: RevealProps) => {
+  const reduceMotion = useReducedMotion();
+
+  if (reduceMotion) {
+    return <div className={className}>{children}</div>;
+  }
+
+  return (
+    <motion.div
+      className={className}
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.12 }}
+      transition={{
+        duration: 0.6,
+        delay,
+        ease: [0.16, 1, 0.3, 1],
+      }}
+    >
+      {children}
+    </motion.div>
+  );
 };
+

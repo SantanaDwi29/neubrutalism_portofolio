@@ -98,6 +98,11 @@
 .hero-art {
   position: relative;
   height: clamp(420px, 72dvh, 590px);
+  perspective: 1000px;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
 }
 
 .hero-art-field {
@@ -122,6 +127,7 @@
   height: 100%;
   object-fit: contain;
   object-position: bottom;
+  filter: drop-shadow(0 12px 24px rgba(128, 0, 32, 0.12));
 }
 
 .hero-art picture {
@@ -129,6 +135,52 @@
   display: block;
   width: 100%;
   height: 100%;
+}
+
+.hero-floating-badge {
+  position: absolute;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--color-cream);
+  color: var(--color-burgundy);
+  border: 2px solid var(--color-sand);
+  box-shadow: 0 8px 20px rgba(128, 0, 32, 0.15);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.badge-top-left {
+  top: 18%;
+  left: -20px;
+}
+
+.badge-bottom-right {
+  bottom: 12%;
+  right: -10px;
+}
+
+@keyframes animate-spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: animate-spin-slow 8s linear infinite;
+}
+
+@keyframes fast-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-pulse-fast {
+  animation: fast-pulse 0.75s step-start infinite;
 }
 
 .about-layout {
