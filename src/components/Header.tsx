@@ -7,8 +7,8 @@ const menuItems = [
   { label: 'ABOUT', href: '#about' },
   { label: 'STACK', href: '#stack' },
   { label: 'JOURNEY', href: '#experience' },
-  { label: 'WORK', href: '#work' },
   { label: 'CERTS', href: '#certs' },
+  { label: 'WORK', href: '#work' },
   { label: 'CONTACT', href: '#contact' },
 ];
 
