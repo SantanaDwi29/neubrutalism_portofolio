@@ -16,7 +16,7 @@ function App() {
           <Route path="project/:id" element={<ProjectDetail />} />
         </Route>
       </Routes>
-      <SpeedInsights />
+      {!['localhost', '127.0.0.1', '[::1]'].includes(window.location.hostname) && <SpeedInsights />}
     </Router>
   );
 }

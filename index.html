@@ -8,28 +8,14 @@
   <meta name="description" content="Portfolio of I Made Santana Dwiananda, a Full-Stack Developer specializing in modern web development with React and Laravel." />
   <title>PORTFOLIO | I MADE SANTANA DWIANANDA</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Asynchronous Font Loading -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" 
-    media="print" 
-    onload="this.media='all'" 
-  />
-  <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  </noscript>
-
-  <link 
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-    rel="stylesheet" 
-    media="print" 
-    onload="this.media='all'"
-  />
-  <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-  </noscript>
+  <link rel="preload" href="/fonts/plus-jakarta-sans.ttf" as="font" type="font/ttf" crossorigin />
+  <link rel="preload" href="/hero/hero-optimized.webp" as="image" type="image/webp" fetchpriority="high" />
+  <script>
+    try {
+      const theme = localStorage.getItem('portfolio-theme');
+      if (theme === 'light' || theme === 'dark') document.documentElement.dataset.theme = theme;
+    } catch { /* Use the system theme when storage is unavailable. */ }
+  </script>
 </head>
 
 <body>
