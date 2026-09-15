@@ -1,6 +1,6 @@
+import { Menu, Moon, Sun, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Code2, Menu, Moon, Sun, X } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 
 const menuItems = [
   { label: 'HOME', href: '#home' },
@@ -74,12 +74,6 @@ export const Header = () => {
   return (
     <header className="site-header">
       <div className="section-wrap h-full flex items-center justify-between gap-4">
-        <Link to="/" onClick={() => setIsMenuOpen(false)} className="flex items-center gap-3 font-extrabold tracking-tight text-ink">
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-action text-action-ink">
-            <Code2 className="h-5 w-5" />
-          </span>
-          <span>SANTANA.DEV</span>
-        </Link>
         <nav aria-label="Main navigation" className="hidden lg:flex items-center gap-1">
           {menuItems.map(({ label, href }) => (
             <a key={label} href={isHomePage ? href : `/${href}`}

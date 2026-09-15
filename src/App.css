@@ -81,6 +81,45 @@
   text-underline-offset: 11px;
 }
 
+.hero-jp-tag,
+.hero-sparkle-icon,
+.hero-typewriter-cursor,
+.hero-location-pin {
+  color: var(--color-rose);
+}
+
+.manga-eyebrow {
+  color: var(--color-rose);
+}
+
+:root[data-theme="dark"] .hero-line {
+  text-decoration-color: var(--color-sand);
+}
+
+:root[data-theme="dark"] .hero-jp-tag,
+:root[data-theme="dark"] .hero-sparkle-icon,
+:root[data-theme="dark"] .hero-typewriter-cursor,
+:root[data-theme="dark"] .hero-location-pin,
+:root[data-theme="dark"] .manga-eyebrow {
+  color: var(--color-sand) !important;
+  opacity: 0.95;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .hero-line {
+    text-decoration-color: var(--color-sand);
+  }
+
+  :root:not([data-theme="light"]) .hero-jp-tag,
+  :root:not([data-theme="light"]) .hero-sparkle-icon,
+  :root:not([data-theme="light"]) .hero-typewriter-cursor,
+  :root:not([data-theme="light"]) .hero-location-pin,
+  :root:not([data-theme="light"]) .manga-eyebrow {
+    color: var(--color-sand) !important;
+    opacity: 0.95;
+  }
+}
+
 .hero-copy>p {
   max-width: 42ch;
   font-size: 16px;

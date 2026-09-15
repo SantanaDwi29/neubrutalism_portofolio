@@ -61,15 +61,15 @@ export const Hero = () => {
         </div>
 
         <div className="flex items-center gap-3 mb-3 flex-wrap min-h-[36px]">
-          <span className="manga-eyebrow text-[var(--color-rose)] font-bold flex items-center gap-2">
-            <Sparkles size={15} className="animate-pulse-slow" />
+          <span className="manga-eyebrow font-bold flex items-center gap-2">
+            <Sparkles size={15} className="animate-pulse-slow hero-sparkle-icon" />
             <TypewriterText
               words={dynamicTitles}
               typingSpeed={70}
               deletingSpeed={35}
               pauseDuration={2500}
               cursorChar="│"
-              cursorClassName="text-[var(--color-rose)] font-extrabold"
+              cursorClassName="hero-typewriter-cursor font-extrabold"
             />
           </span>
           <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-[var(--color-sand)] text-[var(--color-burgundy)] font-bold shadow-sm border border-[rgba(128,0,32,0.15)] flex items-center gap-1">
@@ -79,7 +79,7 @@ export const Hero = () => {
 
         <h1 className="hero-headline">
           Hi, I'm Santa.{' '}
-          <span className="text-xs font-mono text-[var(--color-rose)] uppercase tracking-widest font-normal inline-block ml-1">
+          <span className="text-xs font-mono hero-jp-tag uppercase tracking-widest font-semibold inline-block ml-1">
             「サンタナ」
           </span>
           <br />
@@ -91,7 +91,7 @@ export const Hero = () => {
         </p>
 
         <div className="flex items-center gap-3 mt-4 text-xs font-mono opacity-85">
-          <MapPin size={14} className="text-[var(--color-rose)]" />
+          <MapPin size={14} className="hero-location-pin" />
           <span>Bali, Indonesia — 創造と論理 (Creativity & Software Logic)</span>
         </div>
 
