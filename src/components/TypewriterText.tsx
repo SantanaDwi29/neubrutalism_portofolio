@@ -25,57 +25,57 @@ export const TypewriterText: React.FC<TypewriterTextProps> = ({
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  });
 
   useEffect(() => {
     const media = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setPrefersReducedMotion(media.matches);
-
     const handleChange = () => setPrefersReducedMotion(media.matches);
     media.addEventListener('change', handleChange);
     return () => media.removeEventListener('change', handleChange);
   }, []);
 
   useEffect(() => {
-    if (prefersReducedMotion || words.length === 0) {
-      setCurrentText(words[0] || '');
-      return;
-    }
+    if (prefersReducedMotion || words.length === 0) return;
+
+    let timer: ReturnType<typeof setTimeout>;
 
     if (isPaused) {
-      const timeout = setTimeout(() => {
+      timer = setTimeout(() => {
         setIsPaused(false);
         setIsDeleting(true);
       }, pauseDuration);
-      return () => clearTimeout(timeout);
+      return () => clearTimeout(timer);
     }
 
-    const targetWord = words[wordIndex];
+    const targetWord = words[wordIndex] || '';
 
     if (!isDeleting) {
-      // Typing phase
       if (currentText.length < targetWord.length) {
-        const timeout = setTimeout(() => {
+        timer = setTimeout(() => {
           setCurrentText(targetWord.slice(0, currentText.length + 1));
-        }, typingSpeed + (Math.random() * 30 - 15)); // Add natural micro-variance
-        return () => clearTimeout(timeout);
+        }, typingSpeed + (Math.random() * 20 - 10));
       } else {
-        // Finished typing word, pause before deleting
-        setIsPaused(true);
+        timer = setTimeout(() => {
+          setIsPaused(true);
+        }, 10);
       }
     } else {
-      // Deleting phase
       if (currentText.length > 0) {
-        const timeout = setTimeout(() => {
+        timer = setTimeout(() => {
           setCurrentText(targetWord.slice(0, currentText.length - 1));
         }, deletingSpeed);
-        return () => clearTimeout(timeout);
       } else {
-        // Finished deleting word, move to next word
-        setIsDeleting(false);
-        setWordIndex((prev) => (prev + 1) % words.length);
+        timer = setTimeout(() => {
+          setIsDeleting(false);
+          setWordIndex((prev) => (prev + 1) % words.length);
+        }, 10);
       }
     }
+
+    return () => clearTimeout(timer);
   }, [currentText, isDeleting, isPaused, wordIndex, words, typingSpeed, deletingSpeed, pauseDuration, prefersReducedMotion]);
 
   if (prefersReducedMotion) {

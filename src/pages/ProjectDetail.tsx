@@ -1,7 +1,8 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, ArrowUpRight, ChevronLeft, ChevronRight, ExternalLink, FolderGit2 } from 'lucide-react';
 import { projects } from '../data/projects';
+import { TechIcon } from '../components/TechIcon';
 
 export const ProjectDetail = () => {
   const { id } = useParams();
@@ -48,7 +49,15 @@ const ProjectDetailContent = ({ id }: { id: string | undefined }) => {
         </div>}
       </section>
       <div className="detail-content">
-        <aside><h2>Built with</h2><div className="detail-tech">{project.tech.map(tech => <span key={tech}>{tech}</span>)}</div>
+        <aside>
+          <h2>Built with</h2>
+          <div className="skill-tags">
+            {project.tech.map(tech => (
+              <span key={tech} className="tech-badge-item">
+                <TechIcon name={tech} size={15} />
+              </span>
+            ))}
+          </div>
           <div className="detail-actions">
             {project.liveLink && <a href={project.liveLink} target="_blank" rel="noreferrer" className="anime-btn-primary">Live demo <ExternalLink size={17} /></a>}
             {project.githubLink && <a href={project.githubLink} target="_blank" rel="noreferrer" className="anime-btn-secondary">Source code <FolderGit2 size={17} /></a>}

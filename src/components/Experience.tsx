@@ -35,35 +35,52 @@ export const Experience: React.FC = () => (
       <h2>Learning by building.</h2>
       <p>From my first internship to the systems I work on today.</p>
     </div>
-    <div className="journey-list">
-      {experienceEntries.map((entry, index) => (
-        <article key={entry.chapter} className="journey-entry">
-          <div className="journey-date">
-            <span>{entry.year}</span>
-            <span>{entry.location}</span>
-          </div>
-          <div className="anime-card journey-card">
-            <h3>{entry.role}</h3>
-            <p className="journey-company">{entry.company}</p>
-            <details open={index === 0}>
-              <summary>What I worked on <Plus size={18} /></summary>
-              <div className="journey-details">
-                <p>{entry.description}</p>
-                <div className="skill-tags">
-                  {entry.tech.map(tech => (
-                    <span key={tech} className="tech-badge-item">
-                      <TechIcon name={tech} size={15} />
-                    </span>
-                  ))}
-                </div>
-                <Link to={index === 0 ? '/project/apotek-saddasa' : '/project/kitagiat'} className="text-link">
-                  View project <ArrowUpRight size={17} />
-                </Link>
+
+    <div className="journey-timeline-wrapper">
+      <div className="journey-spine-line" aria-hidden="true" />
+
+      <div className="journey-list">
+        {experienceEntries.map((entry, index) => (
+          <article key={entry.chapter} className="journey-entry">
+            <div className="journey-date">
+              <span className="journey-year font-mono">{entry.year}</span>
+              <span className="journey-location">{entry.location}</span>
+            </div>
+
+            <div className="journey-node-slot" aria-hidden="true">
+              <div className="journey-node-dot" />
+            </div>
+
+            <div className="anime-card journey-card">
+              <div className="journey-card-header">
+                <span className="journey-chapter-tag font-mono">{entry.chapter}</span>
+                <h3>{entry.role}</h3>
+                <p className="journey-company">{entry.company}</p>
               </div>
-            </details>
-          </div>
-        </article>
-      ))}
+
+              <details open={index === 0}>
+                <summary>
+                  <span>What I worked on</span>
+                  <Plus size={18} />
+                </summary>
+                <div className="journey-details">
+                  <p>{entry.description}</p>
+                  <div className="skill-tags">
+                    {entry.tech.map(tech => (
+                      <span key={tech} className="tech-badge-item">
+                        <TechIcon name={tech} size={15} />
+                      </span>
+                    ))}
+                  </div>
+                  <Link to={index === 0 ? '/project/apotek-saddasa' : '/project/kitagiat'} className="text-link">
+                    View project <ArrowUpRight size={17} />
+                  </Link>
+                </div>
+              </details>
+            </div>
+          </article>
+        ))}
+      </div>
     </div>
   </section>
 );

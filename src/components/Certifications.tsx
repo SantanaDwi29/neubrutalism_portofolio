@@ -29,7 +29,7 @@ export interface Certificate {
   credentialId?: string;
 }
 
-export const certificatesData: Certificate[] = [
+const certificatesData: Certificate[] = [
   {
     id: 'dicoding-gen-ai',
     name: 'Belajar Penggunaan Generative AI',
