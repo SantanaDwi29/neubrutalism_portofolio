@@ -74,7 +74,8 @@ export const Header = () => {
   return (
     <header className="site-header">
       <div className="section-wrap h-full flex items-center justify-between gap-4">
-        <nav aria-label="Main navigation" className="hidden lg:flex items-center gap-1">
+        <div className="w-11 h-11 hidden lg:block" aria-hidden="true" />
+        <nav aria-label="Main navigation" className="hidden lg:flex items-center gap-1 mx-auto">
           {menuItems.map(({ label, href }) => (
             <a key={label} href={isHomePage ? href : `/${href}`}
               aria-current={isHomePage && activeSection === href.slice(1) ? 'location' : undefined}
