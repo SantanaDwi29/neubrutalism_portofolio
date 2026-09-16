@@ -1,18 +1,19 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { projects, type Project } from '../data/projects';
-import { ExternalLink, ArrowUpRight, Search, Plus, X, FolderGit2 } from 'lucide-react';
+import { type Project } from '../data/projects';
+import { getProjects } from '../services/projectService';
+import { ExternalLink, ArrowUpRight, Search, Plus, X, FolderGit2, Loader2 } from 'lucide-react';
 import { TechIcon } from './TechIcon';
 
-const categories = ['All', ...new Set(projects.map(project => project.category))];
-const displayCategory = (category: string) => category === 'SaaS MODULE' ? 'SaaS' : category === 'All' ? 'All work' : category.charAt(0) + category.slice(1).toLowerCase();
+const displayCategory = (category: string) =>
+  category === 'SaaS MODULE' ? 'SaaS' : category === 'All' ? 'All work' : category.charAt(0) + category.slice(1).toLowerCase();
 
 const ProjectCard = ({ project, featured = false }: { project: Project; featured?: boolean }) => (
   <article className={`anime-card project-card ${featured ? 'project-featured' : ''}`}>
     <Link to={`/project/${project.id}`} className="project-image-link" aria-label={`Explore ${project.title}`}>
-      <img src={project.images[0]} alt={`${project.title} interface`} loading="lazy" width="1600" height="1000" />
+      <img src={project.images[0] || '/projectt/jagadhita.webp'} alt={`${project.title} interface`} loading="lazy" width="1600" height="1000" />
     </Link>
     <div className="project-body">
       <div className="project-meta"><span>{displayCategory(project.category)}</span><span>{project.year}</span></div>
@@ -40,12 +41,27 @@ const ProjectCard = ({ project, featured = false }: { project: Project; featured
 );
 
 export const Projects = () => {
+  const [projectList, setProjectList] = useState<Project[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [visibleCount, setVisibleCount] = useState(5);
 
+  useEffect(() => {
+    let isMounted = true;
+    getProjects().then(data => {
+      if (isMounted) {
+        setProjectList(data);
+        setIsLoading(false);
+      }
+    });
+    return () => { isMounted = false; };
+  }, []);
+
+  const categories = ['All', ...new Set(projectList.map(project => project.category))];
+
   const query = searchQuery.trim().toLowerCase();
-  const filtered = projects.filter(project =>
+  const filtered = projectList.filter(project =>
     (selectedCategory === 'All' || project.category === selectedCategory) &&
     (!query || [project.title, project.description, ...project.tech].some(text => text.toLowerCase().includes(query)))
   );
@@ -76,7 +92,7 @@ export const Projects = () => {
           <button key={category} type="button" aria-pressed={selectedCategory === category}
             onClick={() => { setSelectedCategory(category); setVisibleCount(5); }}>
             {displayCategory(category)}
-            <span>{category === 'All' ? projects.length : projects.filter(project => project.category === category).length}</span>
+            <span>{category === 'All' ? projectList.length : projectList.filter(project => project.category === category).length}</span>
           </button>
         ))}
       </div>
@@ -89,7 +105,11 @@ export const Projects = () => {
           <button type="button" onClick={resetFilters}>Reset filters <X size={14} /></button>
         )}
       </div>
-      {filtered.length ? (
+      {isLoading ? (
+        <div className="flex items-center justify-center p-12 gap-3 text-slate-400 font-mono">
+          <Loader2 size={24} className="animate-spin text-rose-500" /> Loading dynamic projects...
+        </div>
+      ) : filtered.length ? (
         <div key={`${selectedCategory}-${query}`} className="project-collection">
           <ProjectCard project={filtered[0]} featured />
           <div className="project-grid">
