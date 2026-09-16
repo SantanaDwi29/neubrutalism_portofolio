@@ -1,15 +1,16 @@
 import { Menu, Moon, Sun, X } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const menuItems = [
-  { label: 'HOME', href: '#home' },
-  { label: 'ABOUT', href: '#about' },
-  { label: 'STACK', href: '#stack' },
-  { label: 'JOURNEY', href: '#experience' },
-  { label: 'CERTS', href: '#certs' },
-  { label: 'WORK', href: '#work' },
-  { label: 'CONTACT', href: '#contact' },
+  { label: 'HOME', href: '#home', num: '01' },
+  { label: 'ABOUT', href: '#about', num: '02' },
+  { label: 'STACK', href: '#stack', num: '03' },
+  { label: 'JOURNEY', href: '#experience', num: '04' },
+  { label: 'CERTS', href: '#certs', num: '05' },
+  { label: 'WORK', href: '#work', num: '06' },
+  { label: 'CONTACT', href: '#contact', num: '07' },
 ];
 
 export const Header = () => {
@@ -39,7 +40,7 @@ export const Header = () => {
     try {
       if (theme === 'system') localStorage.removeItem('portfolio-theme');
       else localStorage.setItem('portfolio-theme', theme);
-    } catch { /* The switch still works when local storage is unavailable. */ }
+    } catch { /* Storage fallback */ }
   }, [theme]);
 
   useEffect(() => {
@@ -55,9 +56,22 @@ export const Header = () => {
     });
     observeSections();
     const mutationObserver = new MutationObserver(observeSections);
-    mutationObserver.observe(document.querySelector('main')!, { childList: true, subtree: true });
+    const mainEl = document.querySelector('main');
+    if (mainEl) mutationObserver.observe(mainEl, { childList: true, subtree: true });
     return () => { observer.disconnect(); mutationObserver.disconnect(); };
   }, [isHomePage]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
 
   useEffect(() => {
     if (!isMenuOpen) return;
@@ -74,37 +88,116 @@ export const Header = () => {
   return (
     <header className="site-header">
       <div className="section-wrap h-full flex items-center justify-between gap-4">
-        <div className="w-11 h-11 hidden lg:block" aria-hidden="true" />
-        <nav aria-label="Main navigation" className="hidden lg:flex items-center gap-1 mx-auto">
-          {menuItems.map(({ label, href }) => (
-            <a key={label} href={isHomePage ? href : `/${href}`}
-              aria-current={isHomePage && activeSection === href.slice(1) ? 'location' : undefined}
-              className="nav-link">{label}</a>
-          ))}
-        </nav>
-        <div className="header-controls">
-        <button type="button" className="icon-button theme-toggle" aria-label={dark ? 'Switch to light theme' : 'Switch to dark theme'}
-          onClick={() => setTheme(dark ? 'light' : 'dark')}>
+        {/* Left: Theme Toggle */}
+        <button
+          type="button"
+          className="icon-button theme-toggle"
+          aria-label={dark ? 'Switch to light theme' : 'Switch to dark theme'}
+          onClick={() => setTheme(dark ? 'light' : 'dark')}
+          title={dark ? 'Switch to light theme' : 'Switch to dark theme'}
+        >
           {dark ? <Sun size={19} /> : <Moon size={19} />}
         </button>
-        <button id="menu-toggle" type="button" aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          aria-controls="mobile-navigation" aria-expanded={isMenuOpen}
-          onClick={() => setIsMenuOpen((value) => !value)}
-          className="lg:hidden bg-surface text-ink border border-strong rounded-xl min-h-11 px-3 flex items-center gap-2 font-mono text-xs font-bold">
-          {isMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-          {isMenuOpen ? 'CLOSE' : 'MENU'}
-        </button>
+
+        {/* Center: Desktop Navigation */}
+        <nav aria-label="Main navigation" className="hidden lg:flex items-center gap-1 mx-auto">
+          {menuItems.map(({ label, href }) => {
+            const isActive = isHomePage && activeSection === href.slice(1);
+            return (
+              <a
+                key={label}
+                href={isHomePage ? href : `/${href}`}
+                aria-current={isActive ? 'location' : undefined}
+                className={`nav-link ${isActive ? 'active' : ''}`}
+              >
+                {label}
+              </a>
+            );
+          })}
+        </nav>
+
+        {/* Right: Mobile Menu Toggle / Desktop Balance Spacer */}
+        <div className="header-controls">
+          <button
+            id="menu-toggle"
+            type="button"
+            aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-controls="mobile-navigation"
+            aria-expanded={isMenuOpen}
+            onClick={() => setIsMenuOpen((value) => !value)}
+            className="lg:hidden mobile-menu-btn"
+          >
+            {isMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            <span className="font-mono text-xs font-bold">{isMenuOpen ? 'CLOSE' : 'MENU'}</span>
+          </button>
+          <div className="w-11 h-11 hidden lg:block" aria-hidden="true" />
         </div>
       </div>
-      {isMenuOpen && (
-        <nav id="mobile-navigation" aria-label="Mobile navigation" className="mobile-nav grid gap-2 lg:hidden">
-          {menuItems.map(({ label, href }) => (
-            <a key={label} href={isHomePage ? href : `/${href}`} className="nav-link"
-              aria-current={isHomePage && activeSection === href.slice(1) ? 'location' : undefined}
-              onClick={() => setIsMenuOpen(false)}>{label}</a>
-          ))}
-        </nav>
-      )}
+
+      {/* Mobile & Tablet Animated Drawer */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <>
+            {/* Backdrop overlay */}
+            <motion.div
+              key="mobile-backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="mobile-nav-backdrop lg:hidden"
+              onClick={() => setIsMenuOpen(false)}
+              aria-hidden="true"
+            />
+
+            {/* Mobile Drawer */}
+            <motion.nav
+              id="mobile-navigation"
+              key="mobile-drawer"
+              aria-label="Mobile navigation"
+              initial={{ opacity: 0, y: -16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+              className="mobile-nav lg:hidden"
+            >
+              <div className="mobile-nav-inner">
+                <div className="mobile-nav-links grid gap-2">
+                  {menuItems.map(({ label, href, num }) => {
+                    const isActive = isHomePage && activeSection === href.slice(1);
+                    return (
+                      <a
+                        key={label}
+                        href={isHomePage ? href : `/${href}`}
+                        aria-current={isActive ? 'location' : undefined}
+                        className={`mobile-nav-link ${isActive ? 'active' : ''}`}
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        <span className="mobile-nav-num">{num}</span>
+                        <span className="mobile-nav-label">{label}</span>
+                        {isActive && <span className="mobile-nav-indicator">ACTIVE</span>}
+                      </a>
+                    );
+                  })}
+                </div>
+                <div className="mobile-nav-footer border-t border-strong pt-4 mt-4 flex flex-col gap-3">
+                  <div className="text-xs font-mono font-semibold tracking-wider opacity-75 text-center">
+                    FULL STACK DEVELOPER // PORTFOLIO
+                  </div>
+                  <a
+                    href={isHomePage ? '#contact' : '/#contact'}
+                    className="anime-btn-primary w-full text-center text-xs justify-center py-3"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    GET IN TOUCH →
+                  </a>
+                </div>
+              </div>
+            </motion.nav>
+          </>
+        )}
+      </AnimatePresence>
     </header>
   );
 };
+
