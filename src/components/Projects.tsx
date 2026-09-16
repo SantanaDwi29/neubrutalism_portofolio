@@ -61,10 +61,12 @@ export const Projects = () => {
   const categories = ['All', ...new Set(projectList.map(project => project.category))];
 
   const query = searchQuery.trim().toLowerCase();
-  const filtered = projectList.filter(project =>
-    (selectedCategory === 'All' || project.category === selectedCategory) &&
-    (!query || [project.title, project.description, ...project.tech].some(text => text.toLowerCase().includes(query)))
-  );
+  const filtered = projectList
+    .filter(project =>
+      (selectedCategory === 'All' || project.category === selectedCategory) &&
+      (!query || [project.title, project.description, ...project.tech].some(text => text.toLowerCase().includes(query)))
+    )
+    .sort((a, b) => (Number(b.year) || 0) - (Number(a.year) || 0));
 
   const resetFilters = () => { setSelectedCategory('All'); setSearchQuery(''); setVisibleCount(5); };
 

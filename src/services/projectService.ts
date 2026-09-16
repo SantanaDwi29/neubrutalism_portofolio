@@ -36,49 +36,35 @@ const mapProjectToRow = (project: Project) => ({
 });
 
 export const getProjects = async (): Promise<Project[]> => {
+  const sortProjectsByYearDesc = (list: Project[]) =>
+    [...list].sort((a, b) => (Number(b.year) || 0) - (Number(a.year) || 0));
+
   if (!isSupabaseConfigured() || !supabase) {
     console.info('ℹ️ Supabase not configured. Using local fallback projects.');
-    return fallbackProjects;
+    return sortProjectsByYearDesc(fallbackProjects);
   }
 
   try {
     const { data, error } = await supabase
       .from('projects')
       .select('*')
-      .order('created_at', { ascending: false });
+      .order('year', { ascending: false });
 
     if (error || !data || data.length === 0) {
       if (error) console.warn('⚠️ Supabase fetch error, falling back to local data:', error.message);
-      return fallbackProjects;
+      return sortProjectsByYearDesc(fallbackProjects);
     }
 
-    return data.map(mapRowToProject);
+    return sortProjectsByYearDesc(data.map(mapRowToProject));
   } catch (err) {
     console.warn('⚠️ Error connecting to Supabase:', err);
-    return fallbackProjects;
+    return sortProjectsByYearDesc(fallbackProjects);
   }
 };
 
 export const getProjectById = async (id: string): Promise<Project | undefined> => {
-  if (!isSupabaseConfigured() || !supabase) {
-    return fallbackProjects.find(p => p.id === id);
-  }
-
-  try {
-    const { data, error } = await supabase
-      .from('projects')
-      .select('*')
-      .eq('id', id)
-      .maybeSingle();
-
-    if (error || !data) {
-      return fallbackProjects.find(p => p.id === id);
-    }
-
-    return mapRowToProject(data);
-  } catch {
-    return fallbackProjects.find(p => p.id === id);
-  }
+  const allProjects = await getProjects();
+  return allProjects.find(p => p.id === id);
 };
 
 /**
