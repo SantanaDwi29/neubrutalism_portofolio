@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
+import { AlertTriangle, ArrowLeft, Award, Briefcase, CheckCircle2, Edit3, ExternalLink, Image as ImageIcon, Lock, Plus, RefreshCw, ShieldCheck, Sparkles, Trash2, UploadCloud } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { isSupabaseConfigured } from '../lib/supabase';
-import { getProjects, saveProjectToSupabase, deleteProjectFromSupabase, uploadProjectImage } from '../services/projectService';
-import { getCertificates, saveCertificateToSupabase, deleteCertificateFromSupabase, fallbackCertificates, type Certificate } from '../services/certificateService';
-import { getExperiences, saveExperienceToSupabase, deleteExperienceFromSupabase, fallbackExperiences, type ExperienceEntry } from '../services/experienceService';
 import { type Project } from '../data/projects';
-import { ArrowLeft, Plus, Trash2, Edit3, UploadCloud, CheckCircle2, AlertTriangle, ShieldCheck, Lock, RefreshCw, ExternalLink, Image as ImageIcon, Sparkles, Award, Briefcase } from 'lucide-react';
+import { isSupabaseConfigured } from '../lib/supabase';
+import { deleteCertificateFromSupabase, fallbackCertificates, getCertificates, saveCertificateToSupabase, type Certificate } from '../services/certificateService';
+import { deleteExperienceFromSupabase, fallbackExperiences, getExperiences, saveExperienceToSupabase, type ExperienceEntry } from '../services/experienceService';
+import { deleteProjectFromSupabase, getProjects, saveProjectToSupabase, uploadProjectImage } from '../services/projectService';
 
 type AdminTab = 'projects' | 'certificates' | 'experiences';
 
@@ -474,14 +474,49 @@ export const AdminProjects = () => {
                 </div>
 
                 <div>
-                  <label className="block font-semibold mb-1 opacity-80">Deskripsi Singkat</label>
+                  <label className="block font-semibold mb-1 opacity-80">Deskripsi Singkat (What it does)</label>
                   <textarea
                     rows={3}
                     required
                     value={editingProject.description || ''}
                     onChange={e => setEditingProject({ ...editingProject, description: e.target.value })}
                     className="w-full p-3 border border-rose-300 rounded-xl bg-white text-slate-900 focus:ring-2 focus:ring-rose-500 focus:outline-none"
+                    placeholder="Jelaskan fitur utama dan tujuan proyek..."
                   />
+                </div>
+
+                <div>
+                  <label className="block font-semibold mb-1 opacity-80">Tantangan Rekayasa / Engineering Challenge</label>
+                  <textarea
+                    rows={3}
+                    value={editingProject.challenges || ''}
+                    onChange={e => setEditingProject({ ...editingProject, challenges: e.target.value })}
+                    className="w-full p-3 border border-rose-300 rounded-xl bg-white text-slate-900 focus:ring-2 focus:ring-rose-500 focus:outline-none"
+                    placeholder="Jelaskan tantangan teknis saat membangun proyek ini (misal: optimasi perfomansi, sinkronisasi data, dsb)..."
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block font-semibold mb-1 opacity-80">URL Live Demo (Opsional)</label>
+                    <input
+                      type="url"
+                      placeholder="https://my-app.vercel.app"
+                      value={editingProject.liveLink || ''}
+                      onChange={e => setEditingProject({ ...editingProject, liveLink: e.target.value })}
+                      className="w-full p-3 border border-rose-300 rounded-xl bg-white text-slate-900 font-mono text-xs focus:ring-2 focus:ring-rose-500 focus:outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block font-semibold mb-1 opacity-80">URL Repository GitHub (Opsional)</label>
+                    <input
+                      type="url"
+                      placeholder="https://github.com/username/repository"
+                      value={editingProject.githubLink || ''}
+                      onChange={e => setEditingProject({ ...editingProject, githubLink: e.target.value })}
+                      className="w-full p-3 border border-rose-300 rounded-xl bg-white text-slate-900 font-mono text-xs focus:ring-2 focus:ring-rose-500 focus:outline-none"
+                    />
+                  </div>
                 </div>
 
                 {/* Storage Uploader */}

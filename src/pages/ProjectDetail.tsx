@@ -112,7 +112,12 @@ const ProjectDetailContent = ({ id }: { id: string | undefined }) => {
         </aside>
         <div className="detail-story">
           <section><h2>What it does.</h2><p>{project.description}</p></section>
-          <section className="anime-card detail-challenge"><h2>The engineering challenge.</h2><p>{project.challenges}</p></section>
+          {project.challenges?.trim() && (
+            <section className="anime-card detail-challenge">
+              <h2>The engineering challenge.</h2>
+              <p>{project.challenges}</p>
+            </section>
+          )}
         </div>
       </div>
       {previous && next && (
