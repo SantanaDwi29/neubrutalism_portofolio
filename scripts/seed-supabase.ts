@@ -1,5 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 import { projects } from '../src/data/projects';
+import { fallbackCertificates } from '../src/services/certificateService';
+import { fallbackExperiences } from '../src/services/experienceService';
 import * as dotenv from 'dotenv';
 import * as path from 'path';
 
@@ -15,10 +17,11 @@ if (!supabaseUrl || !supabaseAnonKey || supabaseUrl.includes('your-supabase-proj
 
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-async function seedProjects() {
-  console.log('🚀 Starting Supabase Seeding...');
-  console.log(`📦 Found ${projects.length} initial projects in src/data/projects.ts`);
+async function seedAll() {
+  console.log('🚀 Starting Full Supabase Seeding...');
 
+  // 1. Seed Projects
+  console.log(`📦 Seeding ${projects.length} initial projects...`);
   for (const project of projects) {
     const payload = {
       id: project.id,
@@ -36,19 +39,53 @@ async function seedProjects() {
       color: project.color || 'bg-primary-container',
     };
 
-    const { data, error } = await supabase
-      .from('projects')
-      .upsert(payload, { onConflict: 'id' })
-      .select();
-
-    if (error) {
-      console.error(`❌ Failed to seed project "${project.title}":`, error.message);
-    } else {
-      console.log(`✅ Seeded project: "${project.title}" (${project.id})`);
-    }
+    const { error } = await supabase.from('projects').upsert(payload, { onConflict: 'id' });
+    if (error) console.error(`❌ Project "${project.title}":`, error.message);
+    else console.log(`  ✅ Project: "${project.title}"`);
   }
 
-  console.log('🎉 Seeding complete!');
+  // 2. Seed Certificates
+  console.log(`📜 Seeding ${fallbackCertificates.length} initial certificates...`);
+  for (const cert of fallbackCertificates) {
+    const payload = {
+      id: cert.id,
+      name: cert.name,
+      issuer: cert.issuer,
+      topic: cert.topic,
+      category: cert.category,
+      image: cert.image,
+      pdf: cert.pdf,
+      date: cert.date,
+      skills: cert.skills,
+      credential_id: cert.credentialId || null,
+    };
+
+    const { error } = await supabase.from('certificates').upsert(payload, { onConflict: 'id' });
+    if (error) console.error(`❌ Certificate "${cert.name}":`, error.message);
+    else console.log(`  ✅ Certificate: "${cert.name}"`);
+  }
+
+  // 3. Seed Experiences / Learning Journey
+  console.log(`💼 Seeding ${fallbackExperiences.length} initial learning journey entries...`);
+  for (const exp of fallbackExperiences) {
+    const payload = {
+      id: exp.id,
+      chapter: exp.chapter,
+      year: exp.year,
+      role: exp.role,
+      company: exp.company,
+      location: exp.location,
+      description: exp.description,
+      tech: exp.tech,
+      project_link: exp.projectLink || null,
+    };
+
+    const { error } = await supabase.from('experiences').upsert(payload, { onConflict: 'id' });
+    if (error) console.error(`❌ Experience "${exp.chapter}":`, error.message);
+    else console.log(`  ✅ Experience: "${exp.chapter} - ${exp.role}"`);
+  }
+
+  console.log('🎉 Seeding complete for Projects, Certificates, and Experiences!');
 }
 
-seedProjects().catch(console.error);
+seedAll().catch(console.error);
